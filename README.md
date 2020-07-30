@@ -12,8 +12,8 @@
 ## Records
 
 * Github repository : https://github.com/RMIT-SEPT/majorproject-3-thurs-10-30-5
-* ClickUp Workspace : https://app.clickup.com/xxxx/yyyy
 * Trello Board : https://trello.com/b/TCYa6H6K/sept-project-thurs-1030-team-5
+* Documentation Repo : https://drive.google.com/drive/u/2/folders/1ffTZHxtHm6F03Q_C3xjRi86C5wd3WGXL
 
 ## Code documentation
 
