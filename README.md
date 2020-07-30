@@ -5,7 +5,7 @@
 ## Members
 * MATIC, Marcus (s3703981)
 * CAUCCI, Raymond (s3779722)
-* SURNAME, GivenName (sXXXX)
+* WESTON, Michael (s3541742)
 * SURNAME, GivenName (sXXXX)
 * SURNAME, GivenName (sXXXX)
 
