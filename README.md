@@ -4,7 +4,7 @@
 
 ## Members
 * MATIC, Marcus (s3703981)
-* SURNAME, GivenName (sXXXX)
+* CAUCCI, Raymond (s3779722)
 * SURNAME, GivenName (sXXXX)
 * SURNAME, GivenName (sXXXX)
 * SURNAME, GivenName (sXXXX)
