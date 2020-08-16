@@ -21,7 +21,7 @@ import java.util.List;
 import java.util.Map;
 
 @RestController
-@RequestMapping("/api2")
+@RequestMapping("/api/user")
 public class UserController {
     @Autowired
     private UserService userService;
@@ -47,10 +47,10 @@ public class UserController {
             Map<String, String> errorMap = new HashMap<>();
 //            Finds error in response entity and gives all details for each error
             for (FieldError error : result.getFieldErrors()) {
-                return new ResponseEntity<List<FieldError>>(result.getFieldErrors(), HttpStatus.BAD_REQUEST);
+                return new ResponseEntity<>(result.getFieldErrors(), HttpStatus.BAD_REQUEST);
             }
 //            Returns a generic "Invalid User object"
-            return new ResponseEntity<String>("Invalid User Object", HttpStatus.BAD_REQUEST);
+            return new ResponseEntity<>("Invalid User Object", HttpStatus.BAD_REQUEST);
         }
         User user1 = userService.saveOrUpdateUser(user);
         return new ResponseEntity<>(user, HttpStatus.CREATED);
