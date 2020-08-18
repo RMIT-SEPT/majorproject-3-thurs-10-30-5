@@ -1,6 +1,7 @@
 package thurs1030group5.majorproject.repository;
 
 import org.springframework.data.repository.CrudRepository;
+import thurs1030group5.majorproject.model.users.Customer;
 import thurs1030group5.majorproject.model.users.User;
 
 import java.util.List;

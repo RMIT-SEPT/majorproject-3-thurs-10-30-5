@@ -17,7 +17,6 @@ import thurs1030group5.majorproject.services.UserService;
 
 import javax.validation.Valid;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 @RestController
