@@ -36,3 +36,116 @@
     transform: rotate(360deg);
   }
 }
+
+/* ADDED CSS */
+
+/* NAVBAR */
+#nav {
+  width: 100%;
+  float: left;
+  margin: 0;
+  padding: 0px;
+  list-style: none; 
+  background-color: rgb(34, 34, 34);
+}
+
+#nav li {
+  float: left; 
+}
+
+#nav a {
+  display: block;
+  width: 100%;
+  color: white;
+  text-decoration: none;
+  text-align: center;
+  padding: 30px;
+}
+
+#nav a:hover{
+  transition: 0.3s;
+  color: CornflowerBlue;
+}
+
+/* HERO */
+.hero { 
+  width: 100%;
+}
+
+#heroImage{
+  height: 100%;
+  width: 100%;
+}
+
+.hero h2 { 
+  position: absolute; 
+  top: 300px; 
+  left: 0; 
+  width: 100%; 
+}
+
+.hero h2 span { 
+  color: white; 
+  font-size: 50px;
+  font-weight: normal; 
+  letter-spacing: 1px;  
+  background: rgba(0, 0, 0, 0.4);
+  padding: 20px; 
+}
+
+.hero h3 {
+  position: absolute; 
+  top: 300px; 
+  padding-top: 100px;
+  width: 100%; 
+ }
+ 
+ .hero h3 span {
+   color: white; 
+   font-weight: normal; 
+   letter-spacing: -1px;  
+   padding: 20px; 
+ }
+
+ footer div{
+  padding: 0px 20px 0px 20px;
+  text-align: left;
+ }
+
+ footer {
+  display: flex;
+  justify-content: center;
+  padding: 20px;
+  background-color: black;
+ }
+ 
+ footer h1, h{
+   color: white;
+ }
+
+ footer p{
+   color: grey
+ }
+
+ footer li{
+    color: grey;
+ }
+
+ #footerDiv2 a{
+  text-decoration: none;
+  color: grey;
+ }
+ 
+ #footerDiv2 a:hover{
+   transition: 0.3s;
+   color: CornflowerBlue;
+ }
+
+ #footerDiv2 li{
+  list-style: none;
+  display: block;
+ }
+
+ #footerDiv3 ul{
+  list-style: none;
+ }
