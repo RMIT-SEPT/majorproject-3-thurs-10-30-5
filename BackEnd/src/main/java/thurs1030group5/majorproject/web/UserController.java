@@ -5,42 +5,21 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.FieldError;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import thurs1030group5.majorproject.model.users.Admin;
-import thurs1030group5.majorproject.model.users.Customer;
-import thurs1030group5.majorproject.model.users.User;
-import thurs1030group5.majorproject.model.users.Worker;
+import thurs1030group5.majorproject.model.User;
 import thurs1030group5.majorproject.services.UserService;
 
-import javax.validation.Valid;
 import java.util.HashMap;
 import java.util.Map;
 
 @RestController
-@RequestMapping("/api/user")
+
 public class UserController {
     @Autowired
     private UserService userService;
 
-
-    @PostMapping("/admin")
-    public ResponseEntity<?> createNewCustomer(@Valid @RequestBody Admin admin, BindingResult result) {
-        return createUser(admin, result);
-    }
-
-    @PostMapping("/worker")
-    public ResponseEntity<?> createNewWorker(@Valid @RequestBody Worker worker, BindingResult result) {
-        return createUser(worker, result);
-    }
-
-    @PostMapping("/customer")
-    public ResponseEntity<?> createNewCustomer(@Valid @RequestBody Customer customer, BindingResult result) {
-        return createUser(customer, result);
-    }
-
+    @RequestMapping("/api/registration")
     private ResponseEntity<?> createUser(User user, BindingResult result) {
         if (result.hasErrors()){
             Map<String, String> errorMap = new HashMap<>();
@@ -51,7 +30,7 @@ public class UserController {
 //            Returns a generic "Invalid User object"
             return new ResponseEntity<>("Invalid User Object", HttpStatus.BAD_REQUEST);
         }
-        User user1 = userService.saveOrUpdateUser(user);
+        User user1 = userService.saveUser(user);
         return new ResponseEntity<>(user, HttpStatus.CREATED);
     }
 

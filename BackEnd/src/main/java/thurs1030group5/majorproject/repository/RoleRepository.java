@@ -1,14 +1,14 @@
 package thurs1030group5.majorproject.repository;
 
 import org.springframework.data.repository.CrudRepository;
+import thurs1030group5.majorproject.model.Role;
 import thurs1030group5.majorproject.model.User;
 
 import java.util.List;
 
 
-public interface UserRepository extends CrudRepository<User, Long> {
-    @Override
-    Iterable<User> findAllById(Iterable<Long> iterable);
+public interface RoleRepository extends CrudRepository<Role, Long> {
 
-    User findByUsername(String username);
+
+    Role findByRole(String role);
 }
