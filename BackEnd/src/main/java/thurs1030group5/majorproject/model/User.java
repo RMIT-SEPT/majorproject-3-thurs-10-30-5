@@ -12,7 +12,7 @@ import java.util.Set;
 @Entity
 public class User {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
 
     private int id;
 
@@ -23,7 +23,9 @@ public class User {
     @NotBlank(message = "*Please provide your password")
     private String password;
 
+    //REQUIRED FOR SPRING SECURITY (SAYS WHETHER ACTIVE USER, CANNOT AUTHENTICATE IF FALSE)
     private Boolean active;
+
     @ManyToMany(cascade = CascadeType.MERGE)
     @JoinTable(name = "user_role",joinColumns = @JoinColumn(name ="user_id" ), inverseJoinColumns = @JoinColumn(name = "role_id"))
     private Set<Role> roles;
