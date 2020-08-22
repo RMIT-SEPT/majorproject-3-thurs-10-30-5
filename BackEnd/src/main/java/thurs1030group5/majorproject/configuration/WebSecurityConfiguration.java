@@ -1,6 +1,8 @@
 package thurs1030group5.majorproject.configuration;
 
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 
@@ -14,5 +16,11 @@ public class WebSecurityConfiguration extends WebSecurityConfigurerAdapter {
 //  TODO   SET TO ACCEPT ALL PAGES AT THE MOMENT, WILL NEED TO CHANGE WHEN HOOKED UP TO FRONT END
         http.csrf().disable().authorizeRequests()
                 .antMatchers("/").permitAll();
+    }
+
+    @Bean()
+    @Override
+    public AuthenticationManager authenticationManagerBean() throws Exception {
+        return super.authenticationManagerBean();
     }
 }

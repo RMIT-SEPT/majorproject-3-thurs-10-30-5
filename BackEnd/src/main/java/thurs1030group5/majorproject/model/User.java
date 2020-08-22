@@ -12,10 +12,7 @@ import java.util.Set;
 @Entity
 public class User {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-
-    private int id;
-
+    @GeneratedValue(generator = "assigned")
     @Size(min = 3, message = "*Your user name must have at least 3 characters")
     @NotBlank(message = "*Please provide a user name")
     private String username;
@@ -26,22 +23,17 @@ public class User {
     //REQUIRED FOR SPRING SECURITY (SAYS WHETHER ACTIVE USER, CANNOT AUTHENTICATE IF FALSE)
     private Boolean active;
 
-    @ManyToMany(cascade = CascadeType.MERGE)
-    @JoinTable(name = "user_role",joinColumns = @JoinColumn(name ="user_id" ), inverseJoinColumns = @JoinColumn(name = "role_id"))
+    //Generate ManyToMany relationship table as user_role w/ user.username and role.id columns
+    @ManyToMany(cascade = CascadeType.ALL)
+    @JoinTable(
+            name = "user_role",
+            joinColumns = {@JoinColumn(name = "user_username")},
+            inverseJoinColumns = {@JoinColumn(name = "role_id")}
+    )
     private Set<Role> roles;
-
-
 
     public User() {
 
-    }
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
     }
 
     public String getUsername() {
