@@ -43,15 +43,13 @@ public class LoginController {
     }
 
     @RequestMapping("/api/login")
-    public Boolean validateLogin(String username, String password) {
-        User user = userService.findUserByUsername(username);
+    public Boolean validateLogin(@Valid @RequestBody User user) {
         boolean result = false;
 
-        if(user != null) {
-            BCryptPasswordEncoder bCryptPasswordEncoder = new BCryptPasswordEncoder();
-            String encryptPass = bCryptPasswordEncoder.encode(password);
-
-            if(user.getPassword().equals(encryptPass)){
+        User foundUser = userService.findUserByUsername(user.getUsername());
+        if(foundUser != null) {
+            BCryptPasswordEncoder bCryptPasswordEncoder  = new BCryptPasswordEncoder();
+            if(bCryptPasswordEncoder.matches(user.getPassword(), foundUser.getPassword())) {
                 result = true;
             }
         }
