@@ -12,7 +12,6 @@ import java.util.Set;
 @Entity
 public class User {
     @Id
-    @GeneratedValue(generator = "assigned")
     @Size(min = 3, message = "*Your user name must have at least 3 characters")
     @NotBlank(message = "*Please provide a user name")
     private String username;
