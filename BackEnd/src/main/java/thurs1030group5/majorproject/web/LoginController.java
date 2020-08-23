@@ -27,7 +27,7 @@ public class LoginController {
     @Autowired
     private UserDataService userDataService;
 
-    @RequestMapping("/api/registration")
+    @PostMapping("/api/registration")
     private ResponseEntity<?> createUser(@Valid @RequestBody User user, BindingResult result) {
         if (result.hasErrors()){
             Map<String, String> errorMap = new HashMap<>();
@@ -42,7 +42,7 @@ public class LoginController {
         return new ResponseEntity<>(user, HttpStatus.CREATED);
     }
 
-    @RequestMapping("/api/login")
+    @PostMapping("/api/login")
     public Boolean validateLogin(@Valid @RequestBody User user) {
         boolean result = false;
 
