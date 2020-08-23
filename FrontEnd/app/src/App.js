@@ -2,6 +2,7 @@ import React from 'react';
 import './App.css';
 import NavBar from './components/NavBar.jsx';
 import Footer from './components/Footer.jsx';
+
 import Image from 'react-bootstrap/Image';
 
 
@@ -15,7 +16,7 @@ function App() {
           <h2><span>Software Engineering Processes and Tools Team 5</span></h2>
           <h3><span>Welcome to the basic homepage for the SEPT Team 5.</span></h3>
       </div>
-      
+
       <Footer/>
     </div>
   );

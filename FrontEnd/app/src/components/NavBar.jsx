@@ -1,7 +1,7 @@
-import React, { Component } from "react";
+import React from "react";
 
-class NavBar extends Component {
-  render() {
+
+function NavBar() {
     return (          
         <div id = "navbarDiv">
           <ul id = "nav">
@@ -9,10 +9,10 @@ class NavBar extends Component {
             <li><a href = "#">About us</a></li>
             <li><a href = "#">FAQ</a></li>
             <li><a href = "#">Contact</a></li>
+            <li><a href = "#">Login</a></li>
           </ul>
       </div>
     );
-  }
 }
  
 export default NavBar;
