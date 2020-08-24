@@ -40,6 +40,10 @@
 /* ADDED CSS */
 
 /* NAVBAR */
+#navbarDiv{
+  padding: 10px 0px 10px 0px;
+}
+
 #nav {
   width: 100%;
   float: left;
@@ -117,6 +121,10 @@
   justify-content: center;
   padding: 20px;
   background-color: black;
+  position: fixed;
+  width: 100%;
+  left: 0;
+  bottom: 0;
  }
  
  footer h1, h{
@@ -148,4 +156,31 @@
 
  #footerDiv3 ul{
   list-style: none;
+ }
+
+ /* LOGIN */
+ #loginDiv{
+   border-radius: 5px;
+   border: 1px solid white;
+   padding: 100px 0px 150px 0px;
+   width: 20%;
+   margin-top: 10%;
+   margin-bottom: 10%;
+   margin-left: 40%;
+   margin-right: 40%;
+   color: white;
+   background-color: black;
+   opacity: 40%;
+   position: absolute; 
+   top: 1%; 
+ }
+
+
+ #loginImage{
+  height: 100%;
+  width: 100%;
+ }
+
+ #loginButton{
+   padding: 5px 15px 5px 15px;
  }
