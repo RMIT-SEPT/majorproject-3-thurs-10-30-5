@@ -7,10 +7,7 @@ import org.springframework.security.authentication.UsernamePasswordAuthenticatio
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.FieldError;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import thurs1030group5.majorproject.model.User;
 import thurs1030group5.majorproject.services.UserDataService;
 import thurs1030group5.majorproject.services.UserService;
@@ -19,6 +16,10 @@ import javax.validation.Valid;
 import java.util.HashMap;
 import java.util.Map;
 
+/*
+Cross origin determines who can access the API. MUST BE CHANGED LATER AS '*' ALLOWS ANYONE TO CALL THE API
+ */
+@CrossOrigin("*")
 @RestController
 public class LoginController {
     @Autowired
