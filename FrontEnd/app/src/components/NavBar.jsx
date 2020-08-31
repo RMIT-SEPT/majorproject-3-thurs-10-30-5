@@ -11,7 +11,7 @@ function NavBar() {
             <li><a href = "#">Contact</a></li>
             <li><a href = "/login">Login</a></li>
 
-            <li><Link to = "/test">Test</Link></li>
+            <li><Link to = "/signup">Sign Up</Link></li>
 
             </ul>
       </div>

@@ -1,15 +1,15 @@
 import React, { Component } from 'react'
+import axios from 'axios';
+import './Signup.css';
+
 
 export default class Signup extends Component {
     constructor(){
         super();
 
         this.state={
-            name: "",
-            personIdentifier: "",
-            desc: "",
-            start_date: "",
-            end_date: ""
+            username: "",
+            password: ""
         };
 
         this.onChange = this.onChange.bind(this);
@@ -20,23 +20,58 @@ export default class Signup extends Component {
         this.setState({[e.target.name]: e.target.value});
     }
     
-    onsubmit(e){
+    onSubmit(e){
         e.preventDefault();
         const newUser = {
-            name: this.state.name,
-            personIdentifier: this.state.personIdentifier,
-            desc: this.state.desc,
-            start_date: this.state.start_date,
-            end_date: this.state.end_date
+            username: this.state.username,
+            password: this.state.password,
         }
+        console.log(newUser);
 
-        console.log(newPerson);
+        const axios = require('axios');
+        const data = JSON.stringify({"username":this.state.username,"password":this.state.password});
+
+        var config = {
+        method: 'post',
+        url: 'http://localhost:8080/api/registration',
+        headers: { 
+            'Content-Type': 'application/json',
+            'Access-control-Allow-Origin': '*'
+        },
+        data : data
+        };
+
+        axios(config)
+        .then(function (response) {
+        console.log(JSON.stringify(response.data));
+        })
+        .catch(function (error) {
+        console.log(error);
+        });
+
     }
 
         render() {
             return (
-                <div>
-                    
+                <div className="formDiv">
+                    <form onSubmit = { this.onSubmit }>
+                        Username:
+                        <input type = "text"
+                        placeholder = "Username"
+                        name = "username"
+                        value = { this.state.username }
+                        onChange = { this.onChange }
+                        />
+                        Password:
+                        <input type = "text"
+                        placeholder = "Password"
+                        name = "password"
+                        value = { this.state.password }
+                        onChange = { this.onChange }
+                        />
+
+                        <input type="submit" value = "Sign Up"/>
+                    </form>
                 </div>
             )
         }

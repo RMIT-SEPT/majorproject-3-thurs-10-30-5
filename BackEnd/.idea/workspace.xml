@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="f23e31a9-6c15-4c53-92ea-89cff1527ea0" name="Default Changelist" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="ProjectId" id="1gZe9uCeE0Uz5VVTG1Ru2FFQ2dA" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_opened_file_path" value="$USER_HOME$/Documents/Uni/Year2/Semester2/SEPT/major_assignment/majorproject-3-thurs-10-30-5/BackEnd" />
+  </component>
+  <component name="RunManager">
+    <configuration name="MajorProjectThursday1030Group5Application" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="majorproject" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="thurs1030group5.majorproject.MajorProjectThursday1030Group5Application" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="f23e31a9-6c15-4c53-92ea-89cff1527ea0" name="Default Changelist" comment="" />
+      <created>1598326393453</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1598326393453</updated>
+      <workItem from="1598326398966" duration="1645000" />
+      <workItem from="1598487821236" duration="367000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="2" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="740" y="279" key="FileChooserDialogImpl" timestamp="1598488227858">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state x="740" y="279" key="FileChooserDialogImpl/0.0.1920.1050/-1366.0.1366.738@0.0.1920.1050" timestamp="1598488227858" />
+    <state x="342" y="185" key="new project wizard" timestamp="1598488184470">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state x="342" y="185" key="new project wizard/0.0.1920.1050/-1366.0.1366.738@0.0.1920.1050" timestamp="1598488184470" />
+  </component>
+</project>
