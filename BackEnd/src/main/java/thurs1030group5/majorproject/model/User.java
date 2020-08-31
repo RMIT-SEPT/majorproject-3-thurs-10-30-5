@@ -19,6 +19,12 @@ public class User {
     @NotBlank(message = "*Please provide your password")
     private String password;
 
+    @NotBlank(message = "*Please provide your email")
+    private String email;
+
+    @OneToOne(mappedBy = "user")
+    private Booking booking;
+
     //REQUIRED FOR SPRING SECURITY (SAYS WHETHER ACTIVE USER, CANNOT AUTHENTICATE IF FALSE)
     private Boolean active;
 
@@ -49,6 +55,14 @@ public class User {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
     }
 
     public Set<Role> getRoles() {

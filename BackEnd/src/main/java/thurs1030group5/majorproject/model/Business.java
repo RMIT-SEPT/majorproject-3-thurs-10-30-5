@@ -1,9 +1,10 @@
 package thurs1030group5.majorproject.model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import com.fasterxml.jackson.databind.util.ArrayBuilders;
+
+import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 public class Business {
@@ -12,6 +13,9 @@ public class Business {
     private Long id;
     private String name;
     private int ownerId;
+
+    @OneToMany(targetEntity = Worker.class, mappedBy = "business", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    private List<Worker> worker = new ArrayList<>();
 
     public Long getId() {
         return id;
