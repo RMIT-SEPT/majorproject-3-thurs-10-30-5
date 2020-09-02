@@ -4,10 +4,3 @@ creds2.sh
 terraform.tfstate
 terraform.tfstate.backup
 tmp/
-
-
-### IntelliJ IDEA ###
-.idea
-*.iws
-*.iml
-*.ipr
