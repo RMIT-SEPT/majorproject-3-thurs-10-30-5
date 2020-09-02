@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.FieldError;
@@ -43,18 +44,4 @@ public class LoginController {
         return new ResponseEntity<>(user, HttpStatus.CREATED);
     }
 
-    @PostMapping("/api/login")
-    public Boolean validateLogin(@Valid @RequestBody User user) {
-        boolean result = false;
-
-        User foundUser = userService.findUserByUsername(user.getUsername());
-        if(foundUser != null) {
-            BCryptPasswordEncoder bCryptPasswordEncoder  = new BCryptPasswordEncoder();
-            if(bCryptPasswordEncoder.matches(user.getPassword(), foundUser.getPassword())) {
-                result = true;
-            }
-        }
-
-        return result;
-    }
 }
