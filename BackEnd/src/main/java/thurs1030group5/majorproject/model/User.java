@@ -26,10 +26,11 @@ public class User {
     private Booking booking;
 
     //REQUIRED FOR SPRING SECURITY (SAYS WHETHER ACTIVE USER, CANNOT AUTHENTICATE IF FALSE)
-    private Boolean active;
+    private Boolean enabled;
 
     //Generate ManyToMany relationship table as user_role w/ user.username and role.id columns
-    @ManyToMany(cascade = CascadeType.ALL)
+//    TODO EAGER FETCH IS INEFFICIENT, HOWEVER DEFAULT GIVES EXCEPTION. LOOK INTO BETTER WAYS?
+    @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     @JoinTable(
             name = "user_role",
             joinColumns = {@JoinColumn(name = "user_username")},
@@ -73,11 +74,11 @@ public class User {
         this.roles = roles;
     }
 
-    public Boolean getActive() {
-        return active;
+    public Boolean isEnabled() {
+        return enabled;
     }
 
-    public void setActive(Boolean active) {
-        this.active = active;
+    public void setEnabled(boolean enabled) {
+        this.enabled = enabled;
     }
 }

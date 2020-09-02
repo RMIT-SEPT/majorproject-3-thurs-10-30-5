@@ -27,14 +27,9 @@ public class UserService {
 
     }
 
-
-    public User findUserByUsername(String username) {
-        return userRepository.findByUsername(username);
-    }
-
     public User saveUser(User user) {
         user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
-        user.setActive(true);
+        user.setEnabled(true);
 //        FOR WHEN ROLES ARE ADDED
 //        Role userRole = roleRepository.findByRole("ADMIN");
 //        user.setRoles(new HashSet<Role>(Arrays.asList(userRole)));
