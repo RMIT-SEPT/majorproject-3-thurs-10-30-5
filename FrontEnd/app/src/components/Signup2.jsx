@@ -14,7 +14,7 @@ export default function Signup() {
     e.preventDefault();
     const data = JSON.stringify({ username: formData.username, password: formData.password });
     console.log({ data });
-    api.register({ data });
+    await api.register({ data });
   }
 
   return (
