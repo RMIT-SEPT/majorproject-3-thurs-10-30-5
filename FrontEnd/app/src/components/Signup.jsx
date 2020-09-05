@@ -3,7 +3,7 @@ import React from 'react';
 import api from '../services/api.jsx';
 import './Signup.css';
 
-export default function Signup() {
+function Signup() {
   const [formData, setFormData] = React.useState({ username: '', password: '' });
 
   function onChange(e) {
@@ -29,3 +29,5 @@ export default function Signup() {
     </div>
   );
 }
+
+export default Signup;

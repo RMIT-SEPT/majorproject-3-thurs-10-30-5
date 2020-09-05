@@ -74,11 +74,11 @@
 /* HERO */
 .hero { 
   width: 100%;
+  text-align: center;
 }
 
 #heroImage{
-  height: 100%;
-  width: 100%;
+  overflow: hidden;
 }
 
 .hero h2 { 
@@ -177,8 +177,7 @@
 
 
  #loginImage{
-  height: 100%;
-  width: 100%;
+  overflow: hidden;
  }
 
  #loginButton{
