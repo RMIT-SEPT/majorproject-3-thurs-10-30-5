@@ -9,7 +9,7 @@ function NavBar() {
           <Link to="/">Home</Link>
         </li>
         <li>
-          <a>Dashboard</a>
+          <Link to="/dashboard">Dashboard</Link>
         </li>
         <li>
           <a>About us</a>
@@ -21,7 +21,7 @@ function NavBar() {
           <a>Contact</a>
         </li>
         <li>
-          <a href="/login">Login</a>
+          <Link to="/login">Login</Link>
         </li>
 
         <li>

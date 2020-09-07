@@ -8,6 +8,8 @@ import Login from './components/Login.jsx';
 import Signup from './components/Signup.jsx';
 import Dashboard from './components/Dashboard.jsx';
 
+import 'bootstrap/dist/css/bootstrap.min.css';
+
 import './App.css';
 
 
@@ -19,7 +21,7 @@ function App() {
 
         <switch>
           <Route exact path="/" component={Home} />
-          <Route exact path="/" component={Dashboard} />
+          <Route exact path="/dashboard" component={Dashboard} />
           <Route exact path="/login" component={Login} />
           <Route exact path="/signup" component={Signup} />
           {/*<Route component = {error}/>*/}

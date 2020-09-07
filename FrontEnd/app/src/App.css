@@ -41,7 +41,7 @@
 
 /* NAVBAR */
 #navbarDiv{
-  padding: 10px 0px 10px 0px;
+  padding: 0px 0px 10px 0px;
 }
 
 #nav {
@@ -182,4 +182,9 @@
 
  #loginButton{
    padding: 5px 15px 5px 15px;
+ }
+
+ body{
+   margin: 0;
+   padding: 0;
  }
