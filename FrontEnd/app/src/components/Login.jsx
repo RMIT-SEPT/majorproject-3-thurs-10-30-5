@@ -1,110 +1,114 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
+import { Box, Button, Heading, InputField, PageContent, FieldStack } from 'bumbag';
+
+import api from '../services/api';
 
 const defaultState = {
-    username: "",
-    password: "",
-    usernameError: "",
-    passwordError: ""
-}
-
+  username: '',
+  password: '',
+  usernameError: '',
+  passwordError: ''
+};
 
 class Login extends Component {
   state = defaultState;
 
   handleChange = event => {
-    const isCheckbox = event.target.type === "checkbox";
+    const isCheckbox = event.target.type === 'checkbox';
     this.setState({
-      [event.target.name]: isCheckbox
-        ? event.target.checked
-        : event.target.value
+      [event.target.name]: isCheckbox ? event.target.checked : event.target.value
     });
   };
 
   validate = () => {
-    let usernameError =  "";
-    let passwordError = "";
+    let usernameError = '';
+    let passwordError = '';
 
-   
-    if(this.state.username == "" || !this.state.username){
-      usernameError = "Username cannot be blank";
+    if (this.state.username == '' || !this.state.username) {
+      usernameError = 'Username cannot be blank';
     }
 
-    if(usernameError){
-      this.setState({usernameError});
+    if (usernameError) {
+      this.setState({ usernameError });
       return false;
     }
 
-    if(!this.state.password){
-      passwordError = "Password cannot be blank";
+    if (!this.state.password) {
+      passwordError = 'Password cannot be blank';
     }
 
-    if(passwordError){
-      this.setState({passwordError});
+    if (passwordError) {
+      this.setState({ passwordError });
       return false;
     }
 
     return true;
   };
 
-  handleSubmit = event => {
+  handleSubmit = (event, data) => {
+    console.log('EVENT: ', event);
+    console.log('DATA: ', data);
     event.preventDefault();
     const isValid = this.validate();
-    if(isValid) {
-      console.log(this.state);
+    if (isValid) {
+      //console.log(this.state);
+
+      const data = { username: this.state.username, password: this.state.password };
+      let username = this.state.username;
+      let password = this.state.password;
+      console.log(username);
+      const response = api.login({ username, password });
+
+      //console.log(response);
+
       this.setState(defaultState);
     }
   };
 
   render() {
     return (
-      <div id="loginPage">
-        <img id="loginImage" src="https://picalls.com/wp-content/uploads/2015/05/Skive-by-LunarPixel.jpg" />
+      <PageContent breakpoint="mobile">
+        <Heading textAlign="center">Login</Heading>
 
-        <div id="loginDiv">
-
-          <h1>Login</h1>
-
-          <form name = "loginForm" id="loginForm" onSubmit={this.handleSubmit}>
-            <label>Username <br/>
-              <input 
-                name="username" 
+        <form name="loginForm" id="loginForm" onSubmit={this.handleSubmit}>
+          <FieldStack>
+            <Box>
+              <InputField
+                label="Username"
+                name="username"
                 placeholder="Enter your username"
                 value={this.state.name}
-                onChange={this.handleChange}/>
-
+                onChange={this.handleChange}
+                state={this.state.usernameError && 'danger'}
+              />
               {this.state.usernameError ? (
-                  <div style={{color: "red", fontWeight: "bold"}}>
+                <Box color="danger" fontWeight="semibold">
                   {this.state.usernameError}
-                  </div>
-                ) : null}
-              </label>
-            <br/>
-
-            <label>Password <br/>
-              <input 
-                type="password" 
-                name="password" 
+                </Box>
+              ) : null}
+            </Box>
+            <Box>
+              <InputField
+                label="Password"
+                name="password"
                 placeholder="Enter your password"
                 value={this.state.password}
                 onChange={this.handleChange}
-                />
+                state={this.state.passwordError && 'danger'}
+              />
               {this.state.passwordError ? (
-                  <div style={{color: "red", fontWeight: "bold"}}>
+                <Box color="danger" fontWeight="semibold">
                   {this.state.passwordError}
-                  </div>
+                </Box>
               ) : null}
-            </label>
-
-            <br/><br/>
-
-            <button id="loginButton" type="submit">Login</button>
-
-          </form>
-
-        </div>
-
-      </div>
-    )
+            </Box>
+            <Button width="100%" type="submit" palette="primary" onSubmit={this.handleSubmit}>
+              Submit
+            </Button>
+          </FieldStack>
+        </form>
+      </PageContent>
+    );
   }
 }
 

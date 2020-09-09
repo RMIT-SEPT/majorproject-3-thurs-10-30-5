@@ -1,24 +1,16 @@
 import React from 'react';
 import { Route } from 'react-router-dom';
 
-import NavBar from './components/Layout/NavBar.jsx';
+import MainLayoutWrapper from './components/Layout/MainLayoutWrapper';
 import Home from './components/Home.jsx';
-import Footer from './components/Layout/Footer.jsx';
 import Login from './components/Login.jsx';
 import Signup from './components/Signup.jsx';
 import Dashboard from './components/Dashboard.jsx';
 
-import 'bootstrap/dist/css/bootstrap.min.css';
-
-import './App.css';
-
-
 function App() {
   return (
     <main>
-      <div className="App">
-        <NavBar />
-
+      <MainLayoutWrapper>
         <switch>
           <Route exact path="/" component={Home} />
           <Route exact path="/dashboard" component={Dashboard} />
@@ -26,9 +18,7 @@ function App() {
           <Route exact path="/signup" component={Signup} />
           {/*<Route component = {error}/>*/}
         </switch>
-
-        <Footer />
-      </div>
+      </MainLayoutWrapper>
     </main>
   );
 }

@@ -1,14 +1,17 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
+import { BrowserRouter } from 'react-router-dom';
+import { Provider as BumbagProvider } from 'bumbag';
+
 import App from './App';
 import * as serviceWorker from './serviceWorker';
-import { BrowserRouter, Route, Switch, Redirect, Link } from 'react-router-dom';
 
 ReactDOM.render(
   // <React.StrictMode>
   <BrowserRouter>
-    <App />
+    <BumbagProvider>
+      <App />
+    </BumbagProvider>
   </BrowserRouter>,
 
   // </React.StrictMode>,
