@@ -44,4 +44,9 @@ public class LoginController {
         return new ResponseEntity<>(user, HttpStatus.CREATED);
     }
 
+//    TODO fix post login
+    @GetMapping("/")
+    private String home(){
+        return "Login Successful";
+    }
 }
