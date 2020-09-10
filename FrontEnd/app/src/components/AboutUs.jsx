@@ -1,16 +1,15 @@
 import React from 'react';
+import { Paragraph, Heading, PageContent } from 'bumbag';
 
 export default function AboutUs() {
   return (
-    <div>
-      <div id="aboutDiv1">
-        <h1>About Us</h1>
-        <p1>
+    <PageContent breakpoint="mobile">
+      <Heading textAlign="center">About Us</Heading>
+
+        <Paragraph>
           Here is an about us here is an about us here is an about us here is an about us here is an about us here is an
           about us.{' '}
-        </p1>
-      </div>
-      <div id="aboutDiv2" />
-    </div>
+        </Paragraph>
+    </PageContent>
   );
 }

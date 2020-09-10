@@ -11,9 +11,9 @@ function MainLayoutWrapper({ children }) {
           Home
         </TopNav.Item>
         <TopNav.Item marginLeft="major-2" use={RouterLink} to="/dashboard">
-          Dashbaord
+          Dashboard
         </TopNav.Item>
-        <TopNav.Item marginLeft="major-2" use={RouterLink} to="/">
+        <TopNav.Item marginLeft="major-2" use={RouterLink} to="/aboutus">
           About Us
         </TopNav.Item>
         <TopNav.Item marginLeft="major-2" use={RouterLink} to="/">
@@ -38,8 +38,19 @@ function MainLayoutWrapper({ children }) {
     </TopNav>
   );
 
+  {/*
+  display: flex;
+  justify-content: center;
+  padding: 20px;
+  background-color: black;
+  position: fixed;
+  width: 100%;
+  left: 0;
+  bottom: 0;
+  */}
   const Footer = () => (
-    <PageContent padding="major-2" breakpoint="desktop" wrapperProps={{ backgroundColor: 'black' }} color="white">
+    <PageContent padding="major-2" breakpoint="desktop" wrapperProps={{backgroundColor: 'black', position: 'fixed', left: '0', bottom: '0', width: '100%', display: 'flex' }} 
+      color="white">
       <Flex justifyContent="space-between" width="100%">
         <Box>
           <Text fontWeight="semibold">Contact us!</Text>

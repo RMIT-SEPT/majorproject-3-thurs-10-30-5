@@ -1,5 +1,5 @@
 import React from 'react';
-
+import { Box, Button, Heading, InputField, PageContent, FieldStack } from 'bumbag';
 import api from '../services/api.jsx';
 
 function Signup() {
@@ -17,17 +17,32 @@ function Signup() {
   }
 
   return (
-    <div className="formDiv">
-      <form onSubmit={onSubmit}>
-        Username:
-        <input type="text" placeholder="Username" name="username" value={formData.username} onChange={onChange} />
-        Password:
-        <input type="text" placeholder="Password" name="password" value={formData.password} onChange={onChange} />
-        Email:
-        <input type="text" placeholder="Email" name="email" value={formData.email} onChange={onChange} />
-        <input type="submit" value="Sign Up" />
-      </form>
-    </div>
+    <PageContent breakpoint="mobile">
+      <Heading textAlign="center">Signup</Heading>
+        
+        <form onSubmit={onSubmit}>
+          <FieldStack>
+
+            <FieldStack orientation="horizontal">
+              <InputField name="firstName" placeholder="First Name" label="First name" />
+              <InputField name="lastName" placeholder="First Name" label="Last name" />
+            </FieldStack>
+
+            <InputField name="username" label="Username" type="text" placeholder="Username" name="username" value={formData.username} onChange={onChange} />
+            
+            <InputField name="password" label="Password" type="password" placeholder="Password" name="password" value={formData.password} onChange={onChange} />
+
+            <InputField name="confirmPassword" label="Confirm Password" type="password" placeholder="Confirm Password" name="confirmPassword"/>
+            
+            <InputField name="email" label="Email" type="text" placeholder="Email" name="email" value={formData.email} onChange={onChange} />
+
+            <Button width="100%" type="submit" palette="primary">
+              Submit
+            </Button>
+
+            </FieldStack>
+        </form>
+    </PageContent>
   );
 }
 
