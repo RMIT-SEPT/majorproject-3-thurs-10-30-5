@@ -1,18 +1,31 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import PropTypes from 'prop-types';
 import { Box, PageWithHeader, PageContent, Text, Container, TopNav, Button, Flex, Paragraph, Link, List } from 'bumbag';
-import { Link as RouterLink } from 'react-router-dom';
+import { Link as RouterLink, useHistory } from 'react-router-dom';
+
+import useUser from '../../hooks/useUser';
 
 function MainLayoutWrapper({ children }) {
+  const { user, setUser } = useUser();
+
+  const history = useHistory();
+
+  function handleLogOut() {
+    setUser({});
+    history.push('/login');
+  }
+
   const Header = () => (
     <TopNav>
       <TopNav.Section marginLeft="major-2">
         <TopNav.Item use={RouterLink} to="/">
           Home
         </TopNav.Item>
-        <TopNav.Item marginLeft="major-2" use={RouterLink} to="/dashboard">
-          Dashboard
-        </TopNav.Item>
+        {user.loggedIn && (
+          <TopNav.Item marginLeft="major-2" use={RouterLink} to="/dashboard">
+            Dashboard
+          </TopNav.Item>
+        )}
         <TopNav.Item marginLeft="major-2" use={RouterLink} to="/aboutus">
           About Us
         </TopNav.Item>
@@ -23,34 +36,50 @@ function MainLayoutWrapper({ children }) {
           Contact
         </TopNav.Item>
       </TopNav.Section>
+
+      {/* Only display the signup and login buttons if the user isnt logged in */}
+
       <TopNav.Section marginRight="major-2">
-        <TopNav.Item>
-          <Button use={RouterLink} to="/signup" textDecoration="none" variant="ghost" palette="primary">
-            Sign up
-          </Button>
-        </TopNav.Item>
-        <TopNav.Item>
-          <Button palette="primary" textDecoration="none" use={RouterLink} to="/login">
-            Login
-          </Button>
-        </TopNav.Item>
+        {user.loggedIn ? (
+          <React.Fragment>
+            <TopNav.Item>
+              <Button onClick={handleLogOut} textDecoration="none" variant="ghost" palette="primary">
+                Log out
+              </Button>
+            </TopNav.Item>
+          </React.Fragment>
+        ) : (
+          <React.Fragment>
+            <TopNav.Item>
+              <Button use={RouterLink} to="/signup" textDecoration="none" variant="ghost" palette="primary">
+                Sign up
+              </Button>
+            </TopNav.Item>
+            <TopNav.Item>
+              <Button palette="primary" textDecoration="none" use={RouterLink} to="/login">
+                Login
+              </Button>
+            </TopNav.Item>
+          </React.Fragment>
+        )}
       </TopNav.Section>
     </TopNav>
   );
 
-  {/*
-  display: flex;
-  justify-content: center;
-  padding: 20px;
-  background-color: black;
-  position: fixed;
-  width: 100%;
-  left: 0;
-  bottom: 0;
-  */}
   const Footer = () => (
-    <PageContent padding="major-2" breakpoint="desktop" wrapperProps={{backgroundColor: 'black', position: 'fixed', left: '0', bottom: '0', width: '100%', display: 'flex' }} 
-      color="white">
+    <PageContent
+      padding="major-2"
+      breakpoint="desktop"
+      wrapperProps={{
+        backgroundColor: 'black',
+        position: 'fixed',
+        left: '0',
+        bottom: '0',
+        width: '100%',
+        display: 'flex'
+      }}
+      color="white"
+    >
       <Flex justifyContent="space-between" width="100%">
         <Box>
           <Text fontWeight="semibold">Contact us!</Text>

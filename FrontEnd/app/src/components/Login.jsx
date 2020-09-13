@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Redirect } from 'react-router-dom';
 import { Box, Button, Heading, InputField, PageContent, FieldStack } from 'bumbag';
 
 import api from '../services/api';
@@ -45,27 +46,28 @@ class Login extends Component {
     return true;
   };
 
-  handleSubmit = (event, data) => {
-    console.log('EVENT: ', event);
-    console.log('DATA: ', data);
+  handleSubmit = async (event, data) => {
     event.preventDefault();
+
     const isValid = this.validate();
     if (isValid) {
-      //console.log(this.state);
-
-      const data = { username: this.state.username, password: this.state.password };
       let username = this.state.username;
       let password = this.state.password;
-      console.log(username);
-      const response = api.login({ username, password });
 
-      //console.log(response);
+      const response = await api.login({ username, password });
+      api.setIsLoggedIn(true);
 
-      this.setState(defaultState);
+      console.log(localStorage.getItem('username'));
+
+      this.setState({ ...defaultState, redirect: true });
+      console.log('HERE');
     }
   };
 
   render() {
+    if (this.state.redirect) {
+      return <Redirect to="/dashboard" />;
+    }
     return (
       <PageContent breakpoint="mobile">
         <Heading textAlign="center">Login</Heading>

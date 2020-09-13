@@ -15,10 +15,19 @@ const extraCard = { name: 'Extra', description: 'Extra', button: 'Extra' };
 
 const cards = [bookingCard, profileCard, servicesCard, workerCard, appointmentCard];
 
+let username = '';
+
 function Dashboard() {
+  function setUserData() {
+    username = localStorage.getItem('username');
+    console.log(localStorage.getItem('username'));
+  }
+
+  setUserData();
+
   return (
     <PageContent paddingBottom="15%">
-      <h1 id="welcome"> Welcome to your Dashboard</h1>
+      <h1 id="welcome"> Hi, {username} Welcome to your Dashboard</h1>
       <br />
 
       <Columns>

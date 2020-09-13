@@ -12,6 +12,7 @@ const apiAxios = axios.create({
 
 const api = {
   axios: apiAxios,
+  isLoggedIn: false,
   async register({ data }) {
     const config = {
       method: 'post',
@@ -32,20 +33,18 @@ const api = {
         return error;
       });
   },
-
+  setIsLoggedIn(isLoggedIn) {
+    this.isLoggedIn = isLoggedIn;
+  },
   async login({ username, password }) {
-    //console.log(data);
     var test = qs.stringify({
       username: username,
       password: password
     });
-
-    //var postData = qs.stringify({data});
-
-    console.log(username);
-    console.log(password);
-    //console.log(postData);
-
+    const credentials = {
+      sucessful: 'false',
+      username: username
+    };
     const config = {
       method: 'post',
       url: 'http://localhost:8080/login',
@@ -56,15 +55,17 @@ const api = {
       data: test
     };
 
-    axios(config)
-      .then(function(response) {
-        console.log(response);
-        return response;
-      })
-      .catch(function(error) {
-        console.log(error);
-        return error;
-      });
+    await axios(config).then(
+      response => {
+        //return response.data;
+
+        return credentials;
+      },
+      error => {
+        //console.log(error);
+        return 'Login Unsuccessful';
+      }
+    );
   }
 };
 

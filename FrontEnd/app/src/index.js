@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter } from 'react-router-dom';
 import { Provider as BumbagProvider } from 'bumbag';
+import { UserProvider } from './context/UserProvider';
 
 import App from './App';
 import * as serviceWorker from './serviceWorker';
@@ -15,17 +16,18 @@ const theme = {
     danger: '#da1717',
     warning: '#ed9c22'
   }
-}
+};
 
 ReactDOM.render(
-  // <React.StrictMode>
-  <BrowserRouter>
-    <BumbagProvider theme={theme}>
-      <App />
-    </BumbagProvider>
-  </BrowserRouter>,
-
-  // </React.StrictMode>,
+  <React.StrictMode>
+    <BrowserRouter>
+      <BumbagProvider theme={theme}>
+        <UserProvider>
+          <App />
+        </UserProvider>
+      </BumbagProvider>
+    </BrowserRouter>
+  </React.StrictMode>,
   document.getElementById('root')
 );
 
