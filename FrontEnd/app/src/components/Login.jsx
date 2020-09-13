@@ -1,117 +1,101 @@
-import React, { Component } from 'react';
-import { Redirect } from 'react-router-dom';
+import React, { useContext } from 'react';
+import { useHistory } from 'react-router-dom';
 import { Box, Button, Heading, InputField, PageContent, FieldStack } from 'bumbag';
+import { Formik } from 'formik';
 
-import api from '../services/api';
+import useUser from '../hooks/useUser';
 
-const defaultState = {
-  username: '',
-  password: '',
-  usernameError: '',
-  passwordError: ''
-};
+import api from '../services/api.jsx';
 
-class Login extends Component {
-  state = defaultState;
+export default function Login() {
+  const { setUser } = useUser();
 
-  handleChange = event => {
-    const isCheckbox = event.target.type === 'checkbox';
-    this.setState({
-      [event.target.name]: isCheckbox ? event.target.checked : event.target.value
-    });
-  };
+  const history = useHistory();
 
-  validate = () => {
-    let usernameError = '';
-    let passwordError = '';
+  return (
+    <PageContent breakpoint="mobile">
+      <Heading textAlign="center">Login</Heading>
 
-    if (this.state.username == '' || !this.state.username) {
-      usernameError = 'Username cannot be blank';
-    }
+      <Formik
+       initialValues={{ username: '', password: '' }}
+       validate={values => {
+         const errors = {};
+         if (!values.username) {
+           errors.username = 'Required';
+         }
+         if (!values.password) {
+          errors.password = 'Required';
+        }
+         return errors;
+       }}
+        onSubmit={(values, { setSubmitting }) => {
+          const data = JSON.stringify({ username: values.username, password: values.password });
+          console.log({ data });
+          api.login({ username: values.username, password: values.password });
 
-    if (usernameError) {
-      this.setState({ usernameError });
-      return false;
-    }
+          const user = {
+            loggedIn: true,
+            username: values.username
+          };
 
-    if (!this.state.password) {
-      passwordError = 'Password cannot be blank';
-    }
+          setUser(user);
 
-    if (passwordError) {
-      this.setState({ passwordError });
-      return false;
-    }
+          history.push('/dashboard');
 
-    return true;
-  };
-
-  handleSubmit = async (event, data) => {
-    event.preventDefault();
-
-    const isValid = this.validate();
-    if (isValid) {
-      let username = this.state.username;
-      let password = this.state.password;
-
-      const response = await api.login({ username, password });
-      api.setIsLoggedIn(true);
-
-      console.log(localStorage.getItem('username'));
-
-      this.setState({ ...defaultState, redirect: true });
-      console.log('HERE');
-    }
-  };
-
-  render() {
-    if (this.state.redirect) {
-      return <Redirect to="/dashboard" />;
-    }
-    return (
-      <PageContent breakpoint="mobile">
-        <Heading textAlign="center">Login</Heading>
-
-        <form name="loginForm" id="loginForm" onSubmit={this.handleSubmit}>
+          setTimeout(() => {
+            alert(JSON.stringify(values, null, 2));
+            setSubmitting(false);
+          }, 400);
+       }}
+     >
+       {({
+         values,
+         errors,
+         touched,
+         handleChange,
+         handleBlur,
+         handleSubmit,
+         isSubmitting,
+       }) => (
+        <form name="loginForm" id="loginForm" onSubmit={handleSubmit}>
           <FieldStack>
             <Box>
               <InputField
                 label="Username"
+                type = "text"
                 name="username"
                 placeholder="Enter your username"
-                value={this.state.name}
-                onChange={this.handleChange}
-                state={this.state.usernameError && 'danger'}
+                value={values.username}
+                onChange={handleChange}
+                onBlur={handleBlur}
+                state={errors.username && 'danger'}
               />
-              {this.state.usernameError ? (
-                <Box color="danger" fontWeight="semibold">
-                  {this.state.usernameError}
-                </Box>
-              ) : null}
+              <Box color="danger" fontWeight="semibold">
+                {errors.username && touched.username && errors.username}
+              </Box>
             </Box>
             <Box>
               <InputField
                 label="Password"
+                type = "password"
                 name="password"
                 placeholder="Enter your password"
-                value={this.state.password}
-                onChange={this.handleChange}
-                state={this.state.passwordError && 'danger'}
+                value={values.password}
+                onChange={handleChange}
+                onBlur={handleBlur}
+                state={errors.password && 'danger'}
               />
-              {this.state.passwordError ? (
-                <Box color="danger" fontWeight="semibold">
-                  {this.state.passwordError}
-                </Box>
-              ) : null}
+              <Box color="danger" fontWeight="semibold">
+                {errors.password && touched.password && errors.password}
+              </Box>
             </Box>
-            <Button width="100%" type="submit" palette="primary" onSubmit={this.handleSubmit}>
+            <Button width="100%" type="submit" palette="primary" onSubmit={handleSubmit} disabled={isSubmitting}>
               Submit
             </Button>
           </FieldStack>
         </form>
-      </PageContent>
-    );
-  }
+        )}
+     </Formik>
+    </PageContent>
+  );
 }
-
-export default Login;

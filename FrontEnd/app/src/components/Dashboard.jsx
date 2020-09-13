@@ -1,6 +1,7 @@
 import React from 'react';
 import { Columns, Column, PageContent } from 'bumbag';
 import Card from './CardComponent.jsx';
+import useUser from '../hooks/useUser';
 
 const bookingCard = { name: 'Booking', description: 'Click here to make a booking', button: 'Book' };
 const profileCard = { name: 'Profile', description: 'Click here to view your profile', button: 'My Profile' };
@@ -15,20 +16,13 @@ const extraCard = { name: 'Extra', description: 'Extra', button: 'Extra' };
 
 const cards = [bookingCard, profileCard, servicesCard, workerCard, appointmentCard];
 
-let username = '';
-
 function Dashboard() {
-  function setUserData() {
-    username = localStorage.getItem('username');
-    console.log(localStorage.getItem('username'));
-  }
-
-  setUserData();
+  const { user } = useUser();
 
   return (
     <PageContent paddingBottom="15%">
-      <h1 id="welcome"> Hi, {username} Welcome to your Dashboard</h1>
-      <br />
+      <h1 id="welcome"> Hi, {user.username} Welcome to your Dashboard</h1>
+      <br/>
 
       <Columns>
         {cards.map(card => (
