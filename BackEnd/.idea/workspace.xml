@@ -1,0 +1,463 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </select>
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="78aea8a4-315c-49ed-b709-674a3bf0dc85" name="Default Changelist" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Interface" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$/.." value="frontend" />
+      </map>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="mavenHome" value="C:\Users\micha\.m2\wrapper\dists\apache-maven-3.6.3-bin\1iopthnavndlasol9gbrbg6bf2\apache-maven-3.6.3" />
+      </MavenGeneralSettings>
+    </option>
+  </component>
+  <component name="ProjectId" id="1g1dIwRccmG4vhRJmC1vePlaiW3" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RequestMappingsPanelOrder0" value="0" />
+    <property name="RequestMappingsPanelOrder1" value="1" />
+    <property name="RequestMappingsPanelWidth0" value="75" />
+    <property name="RequestMappingsPanelWidth1" value="75" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../../../BackEnd" />
+    <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
+    <property name="settings.editor.selected.configurable" value="configurable.group.other" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\RMIT\2020\SEPTMajorProject\majorproject-3-thurs-10-30-5\BackEnd\src\main\resources\templates" />
+    </key>
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="thurs1030group5.majorproject.model" />
+      <recent name="thurs1030group5.majorproject.model.users" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="thurs1030group5.majorproject.repository" />
+      <recent name="thurs1030group5.majorproject.services" />
+      <recent name="thurs1030group5.majorproject.web" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\RMIT\2020\SEPTMajorProject\majorproject-3-thurs-10-30-5\BackEnd\src\main\resources" />
+      <recent name="D:\RMIT\2020\SEPTMajorProject\majorproject-3-thurs-10-30-5\BackEnd\src\main\resources\templates" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="MajorProjectThursday1030Group5Application" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="BackEnd" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="thurs1030group5.majorproject.MajorProjectThursday1030Group5Application" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="78aea8a4-315c-49ed-b709-674a3bf0dc85" name="Default Changelist" comment="" />
+      <created>1597285958088</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1597285958088</updated>
+      <workItem from="1597285960617" duration="603000" />
+      <workItem from="1597482168167" duration="17095000" />
+      <workItem from="1597538519036" duration="4853000" />
+      <workItem from="1597884222864" duration="11557000" />
+      <workItem from="1597978926404" duration="752000" />
+      <workItem from="1598069510288" duration="4080000" />
+      <workItem from="1598178841209" duration="109000" />
+      <workItem from="1598178960795" duration="7116000" />
+      <workItem from="1598226103517" duration="606000" />
+      <workItem from="1598325907858" duration="2867000" />
+      <workItem from="1598488902027" duration="1897000" />
+      <workItem from="1598601642104" duration="37000" />
+      <workItem from="1598851180367" duration="13831000" />
+      <workItem from="1598932042831" duration="740000" />
+      <workItem from="1599021088332" duration="14686000" />
+      <workItem from="1599036518380" duration="48000" />
+      <workItem from="1599038959205" duration="60000" />
+      <workItem from="1599041016003" duration="251000" />
+      <workItem from="1599628236182" duration="189000" />
+    </task>
+    <task id="LOCAL-00001" summary="Creation of SpringBoot Project">
+      <created>1597286067936</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1597286067936</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Added all user types and basic model/repo/service/controller api functionality">
+      <created>1597499973746</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1597499973746</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Made user services and controllers polymorphic, removed duplicate code and classes">
+      <created>1597541122269</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1597541122269</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Modified API path and fixed explicit Response Entities">
+      <created>1597541282721</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1597541282721</updated>
+    </task>
+    <task id="LOCAL-00005" summary="Reworked Database schema, migrated to mysql">
+      <created>1597895271810</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1597895271810</updated>
+    </task>
+    <task id="LOCAL-00006" summary="Changed id generation to auto">
+      <created>1598072159220</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1598072159220</updated>
+    </task>
+    <task id="LOCAL-00007" summary="Fixed createUser to actually take Body of input">
+      <created>1598072305930</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1598072305930</updated>
+    </task>
+    <task id="LOCAL-00008" summary="Added basic authentication required for spring (accepts everything)">
+      <created>1598072383709</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1598072383709</updated>
+    </task>
+    <task id="LOCAL-00009" summary="Changed save method">
+      <created>1598072408740</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1598072408740</updated>
+    </task>
+    <task id="LOCAL-00010" summary="Fixed login validation">
+      <created>1598183941088</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1598183941088</updated>
+    </task>
+    <task id="LOCAL-00011" summary="Moved BCrypt Bean">
+      <created>1598183959123</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1598183959123</updated>
+    </task>
+    <task id="LOCAL-00012" summary="Changed primary key from auto-generation">
+      <created>1598184084596</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1598184084596</updated>
+    </task>
+    <task id="LOCAL-00013" summary="Migrated BCrypt bean">
+      <created>1598184142347</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1598184142347</updated>
+    </task>
+    <task id="LOCAL-00014" summary="Added getters and setters">
+      <created>1598185731089</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1598185731089</updated>
+    </task>
+    <task id="LOCAL-00015" summary="Changed mapping to be more specific (PostMapping)">
+      <created>1598185751850</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1598185751850</updated>
+    </task>
+    <task id="LOCAL-00016" summary="Added functionality to retrieve businesses from database">
+      <created>1598185775052</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1598185775052</updated>
+    </task>
+    <task id="LOCAL-00017" summary="Removed custom login controller, uses Spring's inbuilt">
+      <created>1599034380684</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1599034380684</updated>
+    </task>
+    <task id="LOCAL-00018" summary="Fixed user login to properly work">
+      <created>1599035018581</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1599035018581</updated>
+    </task>
+    <task id="LOCAL-00019" summary="Updated antMatching path">
+      <created>1599041097939</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1599041097939</updated>
+    </task>
+    <task id="LOCAL-00020" summary="Fixed Login (Will need to update methods later)">
+      <created>1599628318424</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1599628318424</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="CUSTOM_BOOLEAN_PROPERTIES">
+                <map>
+                  <entry key="Show.Git.Branches" value="true" />
+                </map>
+              </option>
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Creation of SpringBoot Project" />
+    <MESSAGE value="Added all user types and basic model/repo/service/controller api functionality" />
+    <MESSAGE value="Made user services and controllers polymorphic, removed duplicate code and classes" />
+    <MESSAGE value="Modified API path" />
+    <MESSAGE value="Modified API path and fixed explicit Response Entities" />
+    <MESSAGE value="Reworked Database schema, migrated to mysql" />
+    <MESSAGE value="Changed id generation to auto" />
+    <MESSAGE value="Fixed createUser to actually take Body of input" />
+    <MESSAGE value="Added basic authentication required for spring (accepts everything)" />
+    <MESSAGE value="Changed save method" />
+    <MESSAGE value="Fixed login validation" />
+    <MESSAGE value="Moved BCrypt Bean" />
+    <MESSAGE value="Changed primary key from auto-generation" />
+    <MESSAGE value="Migrated BCrypt bean" />
+    <MESSAGE value="Added getters and setters" />
+    <MESSAGE value="Changed mapping to be more specific (PostMapping)" />
+    <MESSAGE value="Added functionality to retrieve businesses from database" />
+    <MESSAGE value="Removed custom login controller, uses Spring's inbuilt" />
+    <MESSAGE value="Fixed user login to properly work" />
+    <MESSAGE value="Updated antMatching path" />
+    <MESSAGE value="Fixed Login (Will need to update methods later)" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixed Login (Will need to update methods later)" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="859" y="410" width="438" height="319" key="#Assign_Data_Sources" timestamp="1597891825797">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="859" y="410" width="438" height="319" key="#Assign_Data_Sources/0.0.1920.1040@0.0.1920.1040" timestamp="1597891825797" />
+    <state x="414" y="173" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1597891815209">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="414" y="173" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1597891815209" />
+    <state x="980" y="182" key="#com.intellij.ide.util.MemberChooser" timestamp="1599024594205">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="980" y="182" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1599024594205" />
+    <state x="691" y="298" key="#com.intellij.ide.util.PackageChooserDialog" timestamp="1597496994031">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="691" y="298" key="#com.intellij.ide.util.PackageChooserDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1597496994031" />
+    <state x="737" y="387" width="716" height="273" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes" timestamp="1597887894424">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="737" y="387" width="716" height="273" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes/0.0.1920.1040@0.0.1920.1040" timestamp="1597887894424" />
+    <state x="690" y="265" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1597887726476">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="690" y="265" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1597887726476" />
+    <state x="704" y="363" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1" timestamp="1597499887701">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="704" y="363" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1/0.0.1920.1040@0.0.1920.1040" timestamp="1597499887701" />
+    <state width="399" height="466" key="DebuggerActiveHint" timestamp="1599025828012">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="399" height="466" key="DebuggerActiveHint/0.0.1920.1040@0.0.1920.1040" timestamp="1599025828012" />
+    <state x="184" y="84" key="DiffContextDialog" timestamp="1598851302889">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="184" y="84" key="DiffContextDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1598851302889" />
+    <state x="740" y="273" key="FileChooserDialogImpl" timestamp="1599039017798">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="740" y="273" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1599039017798" />
+    <state width="1876" height="277" key="GridCell.Tab.0.bottom" timestamp="1599036093190">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1876" height="277" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1599036093190" />
+    <state width="1876" height="277" key="GridCell.Tab.0.center" timestamp="1599036093189">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1876" height="277" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1599036093189" />
+    <state width="1876" height="277" key="GridCell.Tab.0.left" timestamp="1599036093189">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1876" height="277" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1599036093189" />
+    <state width="1876" height="277" key="GridCell.Tab.0.right" timestamp="1599036093189">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1876" height="277" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1599036093189" />
+    <state width="1876" height="277" key="GridCell.Tab.1.bottom" timestamp="1599036093190">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1876" height="277" key="GridCell.Tab.1.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1599036093190" />
+    <state width="1876" height="277" key="GridCell.Tab.1.center" timestamp="1599036093190">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1876" height="277" key="GridCell.Tab.1.center/0.0.1920.1040@0.0.1920.1040" timestamp="1599036093190" />
+    <state width="1876" height="277" key="GridCell.Tab.1.left" timestamp="1599036093190">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1876" height="277" key="GridCell.Tab.1.left/0.0.1920.1040@0.0.1920.1040" timestamp="1599036093190" />
+    <state width="1876" height="277" key="GridCell.Tab.1.right" timestamp="1599036093190">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1876" height="277" key="GridCell.Tab.1.right/0.0.1920.1040@0.0.1920.1040" timestamp="1599036093190" />
+    <state width="1876" height="341" key="GridCell.Tab.2.bottom" timestamp="1599036093188">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1876" height="341" key="GridCell.Tab.2.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1599036093188" />
+    <state width="1876" height="341" key="GridCell.Tab.2.center" timestamp="1599036093188">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1876" height="341" key="GridCell.Tab.2.center/0.0.1920.1040@0.0.1920.1040" timestamp="1599036093188" />
+    <state width="1876" height="341" key="GridCell.Tab.2.left" timestamp="1599036093188">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1876" height="341" key="GridCell.Tab.2.left/0.0.1920.1040@0.0.1920.1040" timestamp="1599036093188" />
+    <state width="1876" height="341" key="GridCell.Tab.2.right" timestamp="1599036093188">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1876" height="341" key="GridCell.Tab.2.right/0.0.1920.1040@0.0.1920.1040" timestamp="1599036093188" />
+    <state x="490" y="173" key="Maven.ArtifactSearchDialog" timestamp="1597483174096">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="490" y="173" key="Maven.ArtifactSearchDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1597483174096" />
+    <state x="659" y="221" key="RollbackChangesDialog" timestamp="1599036555500">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="659" y="221" key="RollbackChangesDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1599036555500" />
+    <state x="552" y="251" key="Vcs.Push.Dialog.v2" timestamp="1599628336376">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="552" y="251" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1599628336376" />
+    <state x="639" y="252" key="com.intellij.openapi.vcs.changes.SpecificFilesViewDialog" timestamp="1599041084108">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="639" y="252" key="com.intellij.openapi.vcs.changes.SpecificFilesViewDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1599041084108" />
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1598180206356">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1598180206356" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/thurs1030group5/majorproject/web/UserController.java</url>
+          <line>20</line>
+          <option name="timeStamp" value="7" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/thurs1030group5/majorproject/services/BusinessService.java</url>
+          <line>20</line>
+          <option name="timeStamp" value="27" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+    <pin-to-top-manager>
+      <pinned-members>
+        <PinnedItemInfo parentTag="thurs1030group5.majorproject.model.User" memberName="active" />
+        <PinnedItemInfo parentTag="thurs1030group5.majorproject.web.LoginController" memberName="userDataService" />
+        <PinnedItemInfo parentTag="thurs1030group5.majorproject.model.User" memberName="roles" />
+        <PinnedItemInfo parentTag="thurs1030group5.majorproject.model.User" memberName="id" />
+        <PinnedItemInfo parentTag="org.springframework.security.authentication.AnonymousAuthenticationToken" memberName="authenticated" />
+        <PinnedItemInfo parentTag="org.springframework.security.authentication.AnonymousAuthenticationToken" memberName="authorities" />
+        <PinnedItemInfo parentTag="thurs1030group5.majorproject.services.UserService" memberName="roleRepository" />
+        <PinnedItemInfo parentTag="thurs1030group5.majorproject.model.User" memberName="password" />
+        <PinnedItemInfo parentTag="thurs1030group5.majorproject.DTO.UserDetailsDTO" memberName="user" />
+        <PinnedItemInfo parentTag="thurs1030group5.majorproject.model.User" memberName="username" />
+        <PinnedItemInfo parentTag="org.springframework.security.core.context.SecurityContextImpl" memberName="authentication" />
+      </pinned-members>
+    </pin-to-top-manager>
+  </component>
+</project>
