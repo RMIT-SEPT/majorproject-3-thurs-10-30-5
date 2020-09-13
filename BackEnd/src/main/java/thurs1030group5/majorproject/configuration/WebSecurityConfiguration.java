@@ -38,6 +38,8 @@ public class WebSecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .permitAll()
                 .passwordParameter("password")
                 .usernameParameter("username");
+
+        http.cors();
     }
 
 
