@@ -1,8 +1,10 @@
 import React from 'react';
-import { Box, Button, Heading, InputField, PageContent, SelectMenu } from 'bumbag';
+import { Box, Button, Heading, InputField, PageContent, SelectMenu, Card } from 'bumbag';
+import Service from './Service.jsx';
 
 export default function Services() {
   const [value, setValue] = React.useState();
+
   return (
     <Box
       border="default"
@@ -12,11 +14,13 @@ export default function Services() {
       marginTop="20px"
       marginLeft="25%"
       marginRight="20%"
+      marginBottom="20%"
     >
-      <PageContent>
+      <PageContent paddingBottom="100px">
         <Heading textAlign="center"> Services </Heading>
         <SelectMenu
-          width="80vh"
+          paddingBottom="50px"
+          width="78vh"
           onChange={setValue}
           options={[
             { key: 1, label: 'Hairdresser', value: 'Hairdresser' },
@@ -26,6 +30,14 @@ export default function Services() {
           ]}
           placeholder="Select a service..."
           value={value}
+        />
+
+        <Service
+          title="Test Title"
+          description="This is someones service. More words and other words. 
+          This card will should only appear once a service is selected from the drop down"
+          width="100%"
+          margin="10%"
         />
       </PageContent>
     </Box>
