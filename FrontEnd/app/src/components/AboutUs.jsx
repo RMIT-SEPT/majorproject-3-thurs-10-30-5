@@ -38,7 +38,7 @@ export default function AboutUs() {
           </Paragraph>
           
           <Paragraph textAlign="center">
-          <b>Your back end devlopers:</b> Michael Weston (s3541742) and Marcus Matic (s3703981)
+          <b>Your back end developers:</b> Michael Weston (s3541742) and Marcus Matic (s3703981)
           </Paragraph>
 
           <Paragraph textAlign="center">
