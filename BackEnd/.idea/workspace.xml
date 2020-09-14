@@ -27,7 +27,9 @@
     </select>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="78aea8a4-315c-49ed-b709-674a3bf0dc85" name="Default Changelist" comment="" />
+    <list default="true" id="78aea8a4-315c-49ed-b709-674a3bf0dc85" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -130,6 +132,7 @@
       <workItem from="1599038959205" duration="60000" />
       <workItem from="1599041016003" duration="251000" />
       <workItem from="1599628236182" duration="189000" />
+      <workItem from="1600043401384" duration="502000" />
     </task>
     <task id="LOCAL-00001" summary="Creation of SpringBoot Project">
       <created>1597286067936</created>
