@@ -1,13 +1,17 @@
 import React from 'react';
+import { Link as RouterLink } from 'react-router-dom';
+
 import { Box, Card, Button, Image } from 'bumbag';
 
-function CardComponent({ name, button, description }) {
+function CardComponent({ name, button, description, buttonlink }) {
   return (
     <Card
+      textAlign="center"
+      alignContent="center"
       height="320px"
       title={name}
       footer={
-        <Button width="150px" palette="primary">
+        <Button width="150px" palette="primary" use={RouterLink} to={buttonlink} textAlign="center">
           {button}
         </Button>
       }
