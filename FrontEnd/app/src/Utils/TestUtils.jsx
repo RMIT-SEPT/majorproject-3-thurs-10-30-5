@@ -6,11 +6,11 @@ import { Provider as BumbagProvider } from 'bumbag';
 import { BrowserRouter as Router } from 'react-router-dom';
 import { render } from '@testing-library/react';
 
-const Providers = ({ subProviders }) => {
+const Providers = ({ children }) => {
   return (
-        <BumbagProvider>
-          <Router>{subProviders}</Router>
-        </BumbagProvider>
+    <BumbagProvider>
+      <Router>{children}</Router>
+    </BumbagProvider>
   );
 };
 
@@ -18,6 +18,5 @@ export * from '@testing-library/react';
 export { render };
 
 Providers.propTypes = {
-  subProviders: PropTypes.node.isRequired
+  children: PropTypes.node.isRequired
 };
-
