@@ -28,6 +28,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="78aea8a4-315c-49ed-b709-674a3bf0dc85" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.circleci/config.yml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -133,6 +134,8 @@
       <workItem from="1599041016003" duration="251000" />
       <workItem from="1599628236182" duration="189000" />
       <workItem from="1600043401384" duration="502000" />
+      <workItem from="1600140645601" duration="78000" />
+      <workItem from="1600140750044" duration="88000" />
     </task>
     <task id="LOCAL-00001" summary="Creation of SpringBoot Project">
       <created>1597286067936</created>
@@ -331,6 +334,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="414" y="173" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1597891815209" />
+    <state x="717" y="320" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1600140690026">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="717" y="320" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1600140690026" />
     <state x="980" y="182" key="#com.intellij.ide.util.MemberChooser" timestamp="1599024594205">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
