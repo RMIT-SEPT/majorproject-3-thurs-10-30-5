@@ -6,7 +6,8 @@ import "@testing-library/jest-dom/dist/to-have-text-content";
 import { StaticRouter } from 'react-router-dom';
 import { render, cleanup } from '../../../Utils/TestUtils.jsx';
 
-//RAYMOND'S TESTS
+//Author: CAUCCI, Raymond (s3779722)
+
 //-----------------------------------------------------------------------------
 //cleanup after each test
 afterEach(cleanup);
