@@ -3,9 +3,9 @@ import { useHistory } from 'react-router-dom';
 import { Box, Button, Heading, InputField, PageContent, FieldStack } from 'bumbag';
 import { Formik } from 'formik';
 
-import useUser from '../hooks/useUser';
+import useUser from '../../hooks/useUser';
 
-import api from '../services/api.jsx';
+import api from '../../services/api.jsx';
 
 export default function Login() {
   const { setUser } = useUser();

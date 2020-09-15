@@ -4,7 +4,7 @@ import { Table , Heading, PageContent } from 'bumbag';
 export default function ContactUs() {
     return (
         <PageContent>
-                <Heading textAlign="center" fontWeight="normal" border= "3px solid black" padding="20px">Contact Us!</Heading>
+                <Heading textAlign="center" fontWeight="normal" border= "1px solid black" padding="50px">Contact Us!</Heading>
                 <br></br>
                 <Table boxShadow="0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)">
                     <Table.Row>

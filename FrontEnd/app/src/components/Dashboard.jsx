@@ -1,6 +1,6 @@
 import React from 'react';
 import { Columns, Column, PageContent } from 'bumbag';
-import Card from './CardComponent.jsx';
+import Card from './CardComponent/CardComponent.jsx';
 import useUser from '../hooks/useUser';
 
 const bookingCard = { name: 'Booking', description: 'Click here to make a booking', button: 'Book' };
