@@ -1,9 +1,11 @@
 import React from 'react';
-import { Box, Button, Heading, InputField, PageContent, FieldStack } from 'bumbag';
+import { SelectMenuField, Button, Heading, InputField, PageContent, FieldStack } from 'bumbag';
 import api from '../services/api.jsx';
+// import { SelectMenuField } from 'bumbag/ts/SelectMenu/styles';
 
 function Signup() {
   const [formData, setFormData] = React.useState({ username: '', password: '', email: '' });
+  const [value, setValue] = React.useState({ account: ''});
 
   function onChange(e) {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -16,6 +18,7 @@ function Signup() {
     api.register({ data });
   }
 
+  
   return (
     <PageContent breakpoint="mobile">
       <Heading textAlign="center">Signup</Heading>
@@ -26,6 +29,16 @@ function Signup() {
             <InputField name="firstName" placeholder="First Name" label="First name" />
             <InputField name="lastName" placeholder="First Name" label="Last name" />
           </FieldStack>
+
+            <SelectMenuField  
+              label = "Account Type"
+              onChange={setValue}
+              options={[
+                { key: 1, label: 'Customer', value: 'c' },
+                { key: 2, label: 'Administrator', value: 'a' }
+              ]}
+              value={value}
+            />
 
           <InputField
             name="username"
@@ -45,7 +58,12 @@ function Signup() {
             onChange={onChange}
           />
 
-          <InputField name="confirmPassword" label="Confirm Password" type="password" placeholder="Confirm Password" />
+          <InputField 
+            name="confirmPassword" 
+            label="Confirm Password" 
+            type="password" 
+            placeholder="Confirm Password" 
+          />
 
           <InputField
             name="email"
@@ -55,7 +73,6 @@ function Signup() {
             value={formData.email}
             onChange={onChange}
           />
-
           <Button width="100%" type="submit" palette="primary">
             Submit
           </Button>
