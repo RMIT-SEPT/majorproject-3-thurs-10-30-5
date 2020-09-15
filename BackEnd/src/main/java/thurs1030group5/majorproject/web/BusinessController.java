@@ -18,8 +18,8 @@ public class BusinessController {
     public BusinessController(BusinessService businessService) {
         this.businessService = businessService;
     }
-    @GetMapping("/api/business")
-    List<Business> getAllBusinesses() {
+    @GetMapping("/api/public/business")
+    private List<Business> getAllBusinesses() {
         return businessService.getAllBusinesses();
     }
 }
