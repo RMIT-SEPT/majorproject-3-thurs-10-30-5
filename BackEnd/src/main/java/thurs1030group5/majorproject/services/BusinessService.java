@@ -9,7 +9,7 @@ import java.util.List;
 
 @Service
 public class BusinessService {
-    private BusinessRepository businessRepository;
+    private final BusinessRepository businessRepository;
 
     @Autowired
     public BusinessService(BusinessRepository businessRepository) {

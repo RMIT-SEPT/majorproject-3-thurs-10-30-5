@@ -12,9 +12,12 @@ import java.util.List;
 
 @RestController
 public class BusinessController {
-    @Autowired
-    BusinessService businessService;
 
+    private final BusinessService businessService;
+    @Autowired
+    public BusinessController(BusinessService businessService) {
+        this.businessService = businessService;
+    }
     @GetMapping("/api/business")
     List<Business> getAllBusinesses() {
         return businessService.getAllBusinesses();
