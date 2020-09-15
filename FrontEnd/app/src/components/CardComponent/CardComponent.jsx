@@ -11,10 +11,11 @@ function CardComponent({ name, button, description, buttonlink }) {
       height="320px"
       title={name}
       footer={
-        <Button width="150px" palette="primary" use={RouterLink} to={buttonlink} textAlign="center">
+        <Button width="150px" palette="primary" textAlign="center">
           {button}
         </Button>
       }
+      data-testid="card-test"
     >
       <Image
         maxWidth="180px"
