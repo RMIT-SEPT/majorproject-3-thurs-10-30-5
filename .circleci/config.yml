@@ -2,7 +2,7 @@ version: 2.1
 jobs: # a collection of steps
   build: # runs not using Workflows must have a `build` job as entry point
 
-    working_directory: ~/majorproject-3-thurs-10-30-5/BackEnd # directory where steps will run
+    working_directory: ~/repo/BackEnd # directory where steps will run
 
     docker: # run the steps with Docker
      - image: circleci/openjdk:8-jdk
