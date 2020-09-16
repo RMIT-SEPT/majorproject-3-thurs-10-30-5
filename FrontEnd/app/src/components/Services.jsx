@@ -1,17 +1,5 @@
 import React from 'react';
-import {
-  Box,
-  Button,
-  Heading,
-  InputField,
-  PageContent,
-  SelectMenu,
-  Card,
-  FieldStack,
-  SelectMenuField,
-  Alert,
-  Select
-} from 'bumbag';
+import { Box, Button, Heading, PageContent, Card, FieldStack, SelectMenuField, Alert } from 'bumbag';
 import * as Loads from 'react-loads';
 import api from '../services/api.jsx';
 import axios from 'axios';
@@ -23,15 +11,21 @@ export default function Services() {
     return response.data;
   }, []);
 
+  //use react Loads to complete the promise and store the data
   const servicesRecord = Loads.useLoads('services', getServices);
   const services = servicesRecord.response || [];
 
-  const service1 = { label: 'test1', value: 'sunny' };
-  const service2 = { label: 'test2', value: 'rainy' };
+  /*
+  Change the key values within the array, so it can be placed directly within the <Select> element (the select element requires an array of objects which 
+  contain a value and a label)
+  */
+  const serviceList = services.map(({ id: value, name: label, ...rest }) => ({ value, label, ...rest }));
 
-  const testservices = [service1, service2];
+  //The value for the select service dropdown
+  const [serviceValue, setServiceValue] = React.useState();
 
   const [value, setValue] = React.useState();
+
   return (
     <Box
       border="default"
@@ -49,10 +43,10 @@ export default function Services() {
         <SelectMenuField
           width="80vh"
           label="Select a Service"
-          onChange={setValue}
-          options={testservices}
+          onChange={setServiceValue}
+          options={serviceList}
           placeholder="Select a Service"
-          value={value}
+          value={serviceValue}
         />
       </PageContent>
 
@@ -60,7 +54,7 @@ export default function Services() {
         <Box>
           <Card standalone>
             <Card.Header>
-              <Card.Title margin="auto">Title</Card.Title>
+              <Card.Title margin="auto">{}</Card.Title>
             </Card.Header>
             <Card.Content textAlign="center">
               Test Description
