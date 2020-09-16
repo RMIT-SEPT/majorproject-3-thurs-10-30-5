@@ -5,6 +5,7 @@ jobs: # a collection of steps
     working_directory: ~/repo/BackEnd # directory where steps will run
 
     docker: # run the steps with Docker
+
      - image: circleci/openjdk:8-jdk
 
     steps: # a collection of executable commands
@@ -33,15 +34,34 @@ jobs: # a collection of steps
           # Upload test summary for display in Artifacts: https://circleci.com/docs/2.0/artifacts/
           path: target/majorproject-0.0.1-SNAPSHOT.jar
       # See https://circleci.com/docs/2.0/deployment-integrations/ for deploy examples
+  build-frontend:
+
+    working_directory: ~/repo/FrontEnd/app
+
+    docker:
+      - image: circleci/node:stretch
+
+    steps:
+
+      - checkout:
+          path: ~/repo/
+
+      - run: npm install
+
+      - run: npm test
+
+
 
 workflows:
   version: 2
-  test-backend:
-      jobs:
-        - build-backend:
-          filters:
-            branches:
-              only:
-                - master
-                - dev
-                - backend
+  runtests:
+    jobs:
+      - build-backend:
+        filters:
+          branches:
+            only: /^backend/
+
+      - build-frontend:
+        filters:
+          branches:
+            only: /^frontend/
