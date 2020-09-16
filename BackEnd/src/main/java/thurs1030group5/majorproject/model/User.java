@@ -4,6 +4,8 @@ package thurs1030group5.majorproject.model;
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Set;
 
 
@@ -37,6 +39,9 @@ public class User {
             inverseJoinColumns = {@JoinColumn(name = "role_id")}
     )
     private Set<Role> roles;
+
+    @OneToMany(targetEntity = Business.class, mappedBy = "user", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    private List<Business> businesses = new ArrayList<>();
 
     public User() {
 
