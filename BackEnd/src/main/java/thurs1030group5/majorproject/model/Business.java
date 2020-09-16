@@ -12,10 +12,13 @@ public class Business {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String name;
-    private int ownerId;
 
     @OneToMany(targetEntity = Worker.class, mappedBy = "business", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private List<Worker> worker = new ArrayList<>();
+
+    @ManyToOne()
+    @JoinColumn(name = "owner_username", referencedColumnName = "username", insertable = false, updatable = false)
+    private User user;
 
     public Long getId() {
         return id;
@@ -31,13 +34,5 @@ public class Business {
 
     public void setName(String name) {
         this.name = name;
-    }
-
-    public int getOwnerId() {
-        return ownerId;
-    }
-
-    public void setOwnerId(int ownerId) {
-        this.ownerId = ownerId;
     }
 }

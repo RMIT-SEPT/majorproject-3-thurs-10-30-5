@@ -52,18 +52,19 @@ public class Worker {
         this.lastName = lastName;
     }
 
-    public Business getBusiness() {
-        return business;
-    }
 
+//    public Business getBusiness() {
+//        return business;
+//    }
+//
     public void setBusiness(Business business) {
         this.business = business;
     }
-
-    public Availability getAvailability() {
-        return availability;
-    }
-
+//
+//    public Availability getAvailability() {
+//        return availability;
+//    }
+//
     public void setAvailability(Availability availability) {
         this.availability = availability;
     }

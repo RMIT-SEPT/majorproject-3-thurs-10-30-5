@@ -4,6 +4,8 @@ package thurs1030group5.majorproject.model;
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Set;
 
 
@@ -30,17 +32,20 @@ public class User {
 
     //Generate ManyToMany relationship table as user_role w/ user.username and role.id columns
 //    TODO EAGER FETCH IS INEFFICIENT, HOWEVER DEFAULT GIVES EXCEPTION. LOOK INTO BETTER WAYS?
-    @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-    @JoinTable(
-            name = "user_role",
-            joinColumns = {@JoinColumn(name = "user_username")},
-            inverseJoinColumns = {@JoinColumn(name = "role_id")}
-    )
-    private Set<Role> roles;
+//    @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+//    @JoinTable(
+//            name = "user_role",
+//            joinColumns = {@JoinColumn(name = "user_username")},
+//            inverseJoinColumns = {@JoinColumn(name = "role_id")}
+//    )
+//    private Set<Role> roles;
 
-    public User() {
+    @ManyToOne()
+    @JoinColumn(name = "role_id", referencedColumnName = "id", insertable = false, updatable = false)
+    private Role role;
 
-    }
+    @OneToMany(targetEntity = Business.class, mappedBy = "user", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    private List<Business> businesses = new ArrayList<>();
 
     public String getUsername() {
         return username;
@@ -66,12 +71,12 @@ public class User {
         this.email = email;
     }
 
-    public Set<Role> getRoles() {
-        return roles;
+    public Role getRoles() {
+        return role;
     }
 
-    public void setRoles(Set<Role> roles) {
-        this.roles = roles;
+    public void setRoles(Role roles) {
+        this.role = role;
     }
 
     public Boolean isEnabled() {

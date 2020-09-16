@@ -1,5 +1,6 @@
 package thurs1030group5.majorproject.model;
 
+
 import javax.persistence.*;
 
 @Entity
@@ -18,6 +19,7 @@ public class Availability {
     private boolean friday;
     private boolean saturday;
     private boolean sunday;
+
 
     public Long getId() {
         return id;

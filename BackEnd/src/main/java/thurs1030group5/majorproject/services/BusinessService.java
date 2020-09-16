@@ -9,7 +9,7 @@ import java.util.List;
 
 @Service
 public class BusinessService {
-    private BusinessRepository businessRepository;
+    private final BusinessRepository businessRepository;
 
     @Autowired
     public BusinessService(BusinessRepository businessRepository) {
@@ -19,5 +19,9 @@ public class BusinessService {
     public List<Business> getAllBusinesses()
     {
         return businessRepository.findAll();
+    }
+
+    public Business getBusinessFromWorkerId(Long workerId) {
+        return businessRepository.findBusinessByWorker_Id(workerId);
     }
 }
