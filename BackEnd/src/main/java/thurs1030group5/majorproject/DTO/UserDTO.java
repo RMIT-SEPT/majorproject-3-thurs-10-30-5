@@ -12,7 +12,7 @@ import java.util.List;
 import java.util.Set;
 
 public class UserDTO implements UserDetails {
-    User user;
+    private User user;
     public UserDTO(User user) {
         this.user = user;
     }
