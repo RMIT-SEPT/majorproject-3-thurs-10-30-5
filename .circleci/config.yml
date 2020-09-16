@@ -38,7 +38,7 @@ jobs: # a collection of steps
     version: 2
     test-backend:
       jobs:
-        build-backend:
+        - build-backend:
           filters:
             branches:
               only:
