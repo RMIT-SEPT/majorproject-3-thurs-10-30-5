@@ -9,7 +9,6 @@ import thurs1030group5.majorproject.model.User;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
-import java.util.Set;
 
 public class UserDTO implements UserDetails {
     private User user;
@@ -19,11 +18,9 @@ public class UserDTO implements UserDetails {
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        Set<Role> roles = user.getRoles();
+        Role role = user.getRoles();
         List<SimpleGrantedAuthority> authorityList = new ArrayList<>();
-        for(Role role : roles) {
-            authorityList.add(new SimpleGrantedAuthority(role.getRole()));
-        }
+        authorityList.add(new SimpleGrantedAuthority(role.getRole()));
         return authorityList;
     }
 

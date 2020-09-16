@@ -32,20 +32,20 @@ public class User {
 
     //Generate ManyToMany relationship table as user_role w/ user.username and role.id columns
 //    TODO EAGER FETCH IS INEFFICIENT, HOWEVER DEFAULT GIVES EXCEPTION. LOOK INTO BETTER WAYS?
-    @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-    @JoinTable(
-            name = "user_role",
-            joinColumns = {@JoinColumn(name = "user_username")},
-            inverseJoinColumns = {@JoinColumn(name = "role_id")}
-    )
-    private Set<Role> roles;
+//    @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+//    @JoinTable(
+//            name = "user_role",
+//            joinColumns = {@JoinColumn(name = "user_username")},
+//            inverseJoinColumns = {@JoinColumn(name = "role_id")}
+//    )
+//    private Set<Role> roles;
+
+    @ManyToOne()
+    @JoinColumn(name = "role_id", referencedColumnName = "id", insertable = false, updatable = false)
+    private Role role;
 
     @OneToMany(targetEntity = Business.class, mappedBy = "user", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private List<Business> businesses = new ArrayList<>();
-
-    public User() {
-
-    }
 
     public String getUsername() {
         return username;
@@ -71,12 +71,12 @@ public class User {
         this.email = email;
     }
 
-    public Set<Role> getRoles() {
-        return roles;
+    public Role getRoles() {
+        return role;
     }
 
-    public void setRoles(Set<Role> roles) {
-        this.roles = roles;
+    public void setRoles(Role roles) {
+        this.role = role;
     }
 
     public Boolean isEnabled() {
