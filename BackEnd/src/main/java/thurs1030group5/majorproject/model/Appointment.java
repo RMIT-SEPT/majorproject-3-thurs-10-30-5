@@ -3,7 +3,6 @@ package thurs1030group5.majorproject.model;
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.PastOrPresent;
-import java.awt.print.Book;
 import java.util.Date;
 
 @Entity
