@@ -2,13 +2,12 @@ package thurs1030group5.majorproject.web;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import thurs1030group5.majorproject.model.Business;
+import thurs1030group5.majorproject.model.Worker;
 import thurs1030group5.majorproject.services.BusinessService;
 
+import javax.validation.Valid;
 import java.util.List;
 @CrossOrigin("*")
 @RestController
@@ -22,5 +21,10 @@ public class BusinessController {
     @GetMapping("/api/public/business")
     private List<Business> getAllBusinesses() {
         return businessService.getAllBusinesses();
+    }
+
+    @PostMapping("/api/public/business/worker")
+    private Business getBusinessFromWorkerId(@Valid @RequestBody Worker worker) {
+        return businessService.getBusinessFromWorkerId(worker.getId());
     }
 }

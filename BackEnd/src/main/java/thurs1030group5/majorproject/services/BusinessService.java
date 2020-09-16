@@ -20,4 +20,8 @@ public class BusinessService {
     {
         return businessRepository.findAll();
     }
+
+    public Business getBusinessFromWorkerId(Long workerId) {
+        return businessRepository.findBusinessByWorker_Id(workerId);
+    }
 }
