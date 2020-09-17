@@ -23,7 +23,6 @@ public class BusinessServiceTest {
     @MockBean
     private BusinessRepository businessRepository;
 
-
     @BeforeEach
     public void setUp() {
         Business business1 = new Business();

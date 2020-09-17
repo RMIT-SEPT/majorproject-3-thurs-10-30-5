@@ -52,6 +52,7 @@ public class AppointmentServiceTest {
         app3.setDateCreated(currentDateTime);
 
         Mockito.when(appointmentRepository.findAll()).thenReturn(Arrays.asList(app1, app2, app3));
+        Mockito.when(appointmentRepository.findAllByType("TestType2")).thenReturn(Arrays.asList(app2, app3));
     }
 
     @Test

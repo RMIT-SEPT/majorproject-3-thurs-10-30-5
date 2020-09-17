@@ -45,7 +45,7 @@ public class WorkerServiceTest {
         worker2.setAvailability(null);
         worker2.setBusiness(business);
 
-        Mockito.when(workerRepository.findAll()).thenReturn(Arrays.asList(worker1, worker2));
+        Mockito.when(workerRepository.findAllByBusiness_Id((long) 1)).thenReturn(Arrays.asList(worker1, worker2));
     }
 
     @Test

@@ -22,17 +22,6 @@ public class AppointmentService {
     }
 
     public List<Appointment> getAllAppointmentByType(String type) {
-        List<Appointment> appointments = appointmentRepository.findAll();
-        List<Appointment> appointmentsByType = new ArrayList<Appointment>();
-
-        for (Appointment appointment : appointments) {
-            if (appointment != null) {
-                if (appointment.getType().equals(type)) {
-                    appointmentsByType.add(appointment);
-                }
-            }
-        }
-
-        return appointmentsByType;
+        return appointmentRepository.findAllByType(type);
     }
 }

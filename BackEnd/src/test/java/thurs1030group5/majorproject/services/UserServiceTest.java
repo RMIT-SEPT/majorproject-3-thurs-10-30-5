@@ -46,7 +46,6 @@ public class UserServiceTest {
     public void whenInvalidUsername_thenUsernameNotFoundExceptionThrown() {
         String username = "invalidUsername";
         assertThrows(UsernameNotFoundException.class, () -> userService.loadUserByUsername(username));
-
     }
 
 }
