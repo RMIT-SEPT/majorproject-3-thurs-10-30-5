@@ -9,9 +9,6 @@ public class Availability {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @OneToOne(mappedBy = "availability")
-    private Worker worker;
-
     private boolean monday;
     private boolean tuesday;
     private boolean wednesday;
@@ -27,14 +24,6 @@ public class Availability {
 
     public void setId(Long id) {
         this.id = id;
-    }
-
-    public Worker getWorker() {
-        return worker;
-    }
-
-    public void setWorker(Worker worker) {
-        this.worker = worker;
     }
 
     public boolean isMonday() {
