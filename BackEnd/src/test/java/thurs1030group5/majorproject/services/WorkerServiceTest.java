@@ -49,7 +49,7 @@ public class WorkerServiceTest {
     }
 
     @Test
-    public void getAllWorkersByBusinessId() {
+    public void whenGetAllWorkersByBusinessId_thenGetAllWorkers() {
         long businessId = 1;
         int expectedSize = 2;
         int actualSize = workerRepository.findAllByBusiness_Id(businessId).size();

@@ -26,12 +26,14 @@ public class UserServiceTest {
     @MockBean
     private UserRepository userRepository;
 
+    AppUser testUser;
     @BeforeEach
     public void setUp() {
-        AppUser testUser = new AppUser();
+        testUser = new AppUser();
         testUser.setUsername("UserTest");
         Mockito.when(userRepository.findByUsername(testUser.getUsername())).thenReturn(testUser);
         Mockito.when(userRepository.findByUsername("invalidUsername")).thenReturn(null);
+        Mockito.when(userRepository.save(testUser)).thenReturn(testUser);
     }
     @Test
     public void whenValidUsername_thenUserShouldBeFound() {
@@ -45,5 +47,11 @@ public class UserServiceTest {
         String username = "invalidUsername";
         assertThrows(UsernameNotFoundException.class, () -> userService.loadUserByUsername(username));
     }
+
+    @Test
+    public void whenSaveUser_thenUserShouldBeSaved() {
+        assertEquals(userRepository.save(testUser), testUser);
+    }
+
 
 }
