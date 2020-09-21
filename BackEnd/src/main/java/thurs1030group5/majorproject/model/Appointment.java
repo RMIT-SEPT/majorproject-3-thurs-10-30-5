@@ -19,9 +19,6 @@ public class Appointment {
     @PastOrPresent
     private Date dateCreated;
 
-    @OneToOne(mappedBy = "appointment")
-    private Booking booking;
-
     public Long getId() {
         return id;
     }

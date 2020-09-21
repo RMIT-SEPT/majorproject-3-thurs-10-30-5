@@ -13,8 +13,8 @@ public class Booking {
     @JoinColumn(name = "appointment_id", referencedColumnName = "id")
     private Appointment appointment;
 
-    @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "username", referencedColumnName = "username")
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "user", referencedColumnName = "username")
     private AppUser user;
 
     @ManyToOne()

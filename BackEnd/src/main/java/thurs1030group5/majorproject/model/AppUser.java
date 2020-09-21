@@ -11,7 +11,6 @@ import javax.validation.constraints.Size;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
-import java.util.Set;
 
 
 
@@ -29,8 +28,8 @@ public class AppUser implements UserDetails {
     @NotBlank(message = "*Please provide your email")
     private String email;
 
-    @OneToOne(mappedBy = "user")
-    private Booking booking;
+    @OneToMany(targetEntity = Booking.class, mappedBy = "user", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    private List<Booking> bookings;
 
     //REQUIRED FOR SPRING SECURITY (SAYS WHETHER ACTIVE USER, CANNOT AUTHENTICATE IF FALSE)
     private Boolean enabled;
