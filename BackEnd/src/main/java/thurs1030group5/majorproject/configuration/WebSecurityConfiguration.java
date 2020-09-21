@@ -40,18 +40,6 @@ public class WebSecurityConfiguration extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-//        http    .cors().and()
-//                .csrf().disable()
-//                .authorizeRequests()
-//                    .antMatchers("/", "index", "/css/*", "/api/registration","/api/public/**","/js/*").permitAll()
-//                .anyRequest()
-//                .authenticated()
-//                .and()
-//                .formLogin()
-//                .loginPage("/login")
-//                .permitAll()
-//                .passwordParameter("password")
-//                .usernameParameter("username");
 
         http.cors().and().csrf().disable()
                 .exceptionHandling().authenticationEntryPoint(unauthorizedHandler).and()
@@ -73,8 +61,14 @@ public class WebSecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .antMatchers(SecurityConstants.PUBLIC_URLS,
                         "/api/registration",
                         "/login").permitAll()
+                .anyRequest().authenticated()
+                .and()
+                .formLogin()
+                .loginPage("/login")
+                .permitAll()
+                .passwordParameter("password")
+                .usernameParameter("username");
 
-                .anyRequest().authenticated();
 
         http.addFilterBefore(jwtAuthenticationFilter(), UsernamePasswordAuthenticationFilter.class);
     }
