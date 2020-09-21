@@ -1,11 +1,14 @@
-package thurs1030group5.majorproject.model;
+//CLASSNAME: Availability
+//DESCRIPTION: Represents the availability of a specific worker for working on each day of the week
 
+package thurs1030group5.majorproject.model;
 
 import javax.persistence.*;
 
-//Represents the availability of a specific worker for working on each day of the week
 @Entity
 public class Availability {
+
+    //====================== COLUMNS ======================//
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -17,8 +20,9 @@ public class Availability {
     private boolean friday;
     private boolean saturday;
     private boolean sunday;
+    //====================== COLUMNS ======================//
 
-
+    //====================== GETTERS / SETTERS ======================//
     public Long getId() {
         return id;
     }
@@ -82,4 +86,5 @@ public class Availability {
     public void setSunday(boolean sunday) {
         this.sunday = sunday;
     }
+    //====================== GETTERS / SETTERS ======================//
 }

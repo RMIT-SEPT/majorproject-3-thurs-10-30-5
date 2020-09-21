@@ -1,16 +1,22 @@
+//CLASSNAME: Role
+//DESCRIPTION: Contains all of the possible roles for a user (ADMIN, WORKER or CUSTOMER)
+
 package thurs1030group5.majorproject.model;
 
 import javax.persistence.*;
-import java.util.ArrayList;
-import java.util.List;
 
-//Contains all of the possible roles for a user (ADMIN, WORKER or CUSTOMER)
 @Entity
 public class Role {
+
+    //====================== COLUMNS ======================//
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
+    private String role;
+    //====================== COLUMNS ======================//
+
+    //====================== GETTERS / SETTERS ======================//
     public int getId() {
         return id;
     }
@@ -26,6 +32,5 @@ public class Role {
     public void setRole(String role) {
         this.role = role;
     }
-
-    private String role;
+    //====================== GETTERS / SETTERS ======================//
 }

@@ -1,5 +1,7 @@
-package thurs1030group5.majorproject.model;
+//CLASSNAME: AppUser
+//DESCRIPTION: A class to represent a user account and their details
 
+package thurs1030group5.majorproject.model;
 
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
@@ -12,11 +14,10 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
-
-
-//Class to represent a user account and their details
 @Entity(name = "User")
 public class AppUser implements UserDetails {
+
+    //====================== COLUMNS ======================//
     @Id
     @Size(min = 3, message = "*Your user name must have at least 3 characters")
     @NotBlank(message = "*Please provide a user name")
@@ -28,18 +29,20 @@ public class AppUser implements UserDetails {
     @NotBlank(message = "*Please provide your email")
     private String email;
 
-//    Holds all bookings a customer/worker account has
+    //Holds all bookings a customer/worker account has
     @OneToMany(targetEntity = Booking.class, mappedBy = "user", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private List<Booking> bookings;
 
     //REQUIRED FOR SPRING SECURITY (SAYS WHETHER ACTIVE USER, CANNOT AUTHENTICATE IF FALSE)
     private Boolean enabled;
 
+    //Many-to-one relationship with role entities, user can only have one role
     @ManyToOne()
     @JoinColumn(name = "role_id", referencedColumnName = "id", insertable = false, updatable = false)
     private Role role;
+    //====================== COLUMNS ======================//
 
-
+    //====================== GETTERS / SETTERS ======================//
     @Override
     public String getPassword() {
         return password;
@@ -50,26 +53,9 @@ public class AppUser implements UserDetails {
         return username;
     }
 
-    @Override
-    public boolean isAccountNonExpired() {
-        return true;
-    }
-
-    @Override
-    public boolean isAccountNonLocked() {
-        return true;
-    }
-
-    @Override
-    public boolean isCredentialsNonExpired() {
-        return true;
-    }
-
-
     public void setUsername(String username) {
         this.username = username;
     }
-
 
     public void setPassword(String password) {
         this.password = password;
@@ -99,12 +85,30 @@ public class AppUser implements UserDetails {
     public void setEnabled(boolean enabled) {
         this.enabled = enabled;
     }
+    //====================== GETTERS / SETTERS ======================//
 
-//    Creates an authority for the user based on their role (ADMIN, WORKER OR CUSTOMER)
+    //====================== SECURITY/LOGIN FUNCTIONS ======================//
+    @Override
+    public boolean isAccountNonExpired() {
+        return true;
+    }
+
+    @Override
+    public boolean isAccountNonLocked() {
+        return true;
+    }
+
+    @Override
+    public boolean isCredentialsNonExpired() {
+        return true;
+    }
+
+    //Creates an authority for the user based on their role (ADMIN, WORKER OR CUSTOMER)
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
         List<SimpleGrantedAuthority> authorityList = new ArrayList<>();
         authorityList.add(new SimpleGrantedAuthority(role.getRole()));
         return authorityList;
     }
+    //====================== SECURITY/LOGIN FUNCTIONS ======================//
 }
