@@ -9,6 +9,7 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
+//Class to create a Json Web Token based on constants from class SecurityConstants
 @Component
 public class JwtTokenProvider {
 
@@ -39,6 +40,7 @@ public class JwtTokenProvider {
     public boolean validateToken(String token) {
         try {
             Jwts.parser().setSigningKey(SecurityConstants.SECRET).parseClaimsJws(token);
+//            If token parses, it is valid
             return true;
         } catch (SignatureException ex) {
             System.out.println("Invalid JWT Signature");
@@ -51,13 +53,14 @@ public class JwtTokenProvider {
         } catch (IllegalArgumentException ex) {
             System.out.println("JWT claims string is empty");
         }
+//        If token is invalid, return false
         return false;
     }
 
 
     //Get username from token
-
     public String getUsernameFromJWT(String token) {
+//        Extracts the user details from their JSON token
         Claims claims = Jwts.parser().setSigningKey(SecurityConstants.SECRET).parseClaimsJws(token).getBody();
         String username = (String) claims.get("username");
 

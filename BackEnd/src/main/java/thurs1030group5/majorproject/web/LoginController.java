@@ -43,19 +43,22 @@ public class LoginController {
     private ResponseEntity<?> createUser(@Valid @RequestBody AppUser appUser, BindingResult result) {
 
         ResponseEntity<?> errorMap = mapValidationErrorService.MapValidationService(result);
+//        If errors with registering, return
         if(errorMap != null) {
             return errorMap;
         }
+//        If no errors, save the new account into the database
         userService.saveUser(appUser);
+//        Return a response to show the user was created
         return new ResponseEntity<>(appUser, HttpStatus.CREATED);
     }
 
-//Get mapping that is used after a successful login
+//Get mapping that is used after a successful login. Will be fixed when JWT implemented
     @GetMapping("/")
     private String home(){
         return "Login Successful";
     }
-
+    //Get mapping that is used after a failed login. Will be fixed when JWT implemented
     @GetMapping("/login")
     private String login(){
         return "LOGIN";
@@ -68,22 +71,24 @@ public class LoginController {
     @Autowired
     private AuthenticationManager authenticationManager;
 
-//    Mapping to log attempt to log a user into the application through Spring Security
+//    Mapping to attempt to log a user into the application through Spring Security
     @PostMapping("/login")
     public ResponseEntity<?> authenticateUser(@Valid @RequestBody LoginRequest loginRequest, BindingResult result){
         ResponseEntity<?> errorMap = mapValidationErrorService.MapValidationService(result);
+//        If errors, return the errors
         if(errorMap != null) return errorMap;
-
+//        If no errors, username and password are valid and create an authentication token for it
         Authentication authentication = authenticationManager.authenticate(
                 new UsernamePasswordAuthenticationToken(
                         loginRequest.getUsername(),
                         loginRequest.getPassword()
                 )
         );
-
+//        Set the authentication for the User of the platform as they have valid credentials
         SecurityContextHolder.getContext().setAuthentication(authentication);
         String jwt = SecurityConstants.TOKEN_PREFIX +  tokenProvider.generateToken(authentication);
 
+//        Return true as user is successfully logged in, and return json web token for front end to use
         return ResponseEntity.ok(new JwtLoginSuccessResponse(true, jwt));
     }
 }

@@ -14,7 +14,7 @@ import java.util.List;
 
 
 
-
+//Class to represent a user account and their details
 @Entity(name = "User")
 public class AppUser implements UserDetails {
     @Id
@@ -28,6 +28,7 @@ public class AppUser implements UserDetails {
     @NotBlank(message = "*Please provide your email")
     private String email;
 
+//    Holds all bookings a customer/worker account has
     @OneToMany(targetEntity = Booking.class, mappedBy = "user", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private List<Booking> bookings;
 
@@ -99,6 +100,7 @@ public class AppUser implements UserDetails {
         this.enabled = enabled;
     }
 
+//    Creates an authority for the user based on their role (ADMIN, WORKER OR CUSTOMER)
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
         List<SimpleGrantedAuthority> authorityList = new ArrayList<>();

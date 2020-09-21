@@ -8,6 +8,7 @@ import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabas
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import thurs1030group5.majorproject.model.Business;
+import thurs1030group5.majorproject.model.Worker;
 import thurs1030group5.majorproject.repository.BusinessRepository;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import java.util.Arrays;
@@ -23,9 +24,10 @@ public class BusinessServiceTest {
     @MockBean
     private BusinessRepository businessRepository;
 
+    Business business1;
     @BeforeEach
     public void setUp() {
-        Business business1 = new Business();
+        business1 = new Business();
         business1.setId((long) 1);
         business1.setName("Business 1");
         Business business2 = new Business();
@@ -33,7 +35,9 @@ public class BusinessServiceTest {
         business2.setName("Business 2");
 
         Mockito.when(businessRepository.findAll()).thenReturn(Arrays.asList(business1, business2));
+
     }
+
 
     @Test
     public void whenValidBusinessId_thenBusinessShouldBeFound() {
@@ -45,5 +49,15 @@ public class BusinessServiceTest {
     public void whenGetAllBusiness_thenAllBusinessesAreFound() {
         int size = 2;
         assertEquals(size, businessService.getAllBusinesses().size());
+    }
+
+    @Test
+    public void whenGetBusinessFromWorkerId_thenBusinessShouldBeFound() {
+        long id = 1;
+        Worker worker = new Worker();
+        worker.setId(id);
+        Mockito.when(businessRepository.findBusinessByWorker_Id(id)).thenReturn(business1);
+        assertEquals(businessService.getBusinessFromWorkerId(id), business1);
+
     }
 }

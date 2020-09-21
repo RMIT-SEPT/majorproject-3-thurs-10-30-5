@@ -18,11 +18,13 @@ public class BusinessController {
     public BusinessController(BusinessService businessService) {
         this.businessService = businessService;
     }
+//    Returns all business in the database
     @GetMapping("/api/public/business")
     private List<Business> getAllBusinesses() {
         return businessService.getAllBusinesses();
     }
 
+//    Returns the business that the input worker works for
     @PostMapping("/api/public/business/worker")
     private Business getBusinessFromWorkerId(@Valid @RequestBody Worker worker) {
         return businessService.getBusinessFromWorkerId(worker.getId());

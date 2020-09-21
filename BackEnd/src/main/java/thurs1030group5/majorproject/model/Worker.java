@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+//Represents a worker employed by a business
 @Entity
 public class Worker {
     @Id
@@ -27,6 +28,7 @@ public class Worker {
     @JoinColumn(name = "availability_id", referencedColumnName = "id")
     private Availability availability;
 
+//    List of all bookings made with a worker
     @OneToMany(targetEntity = Booking.class, mappedBy = "worker", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private List<Booking> bookings;
 

@@ -4,6 +4,7 @@ import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 
+//Contains all of the possible roles for a user (ADMIN, WORKER or CUSTOMER)
 @Entity
 public class Role {
     @Id

@@ -5,6 +5,7 @@ import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.PastOrPresent;
 import java.util.Date;
 
+//A class to represent a specific appointment for a customer
 @Entity
 public class Appointment {
     @Id

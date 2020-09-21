@@ -1,7 +1,10 @@
 package thurs1030group5.majorproject.payload;
 
+//Class to be called when a user logs in
 public class JwtLoginSuccessResponse {
+//    Contains whether user sucessfully logged in
     private boolean success;
+//    Contains a users token (as a string)
     private String token;
 
     public JwtLoginSuccessResponse(boolean success, String token) {

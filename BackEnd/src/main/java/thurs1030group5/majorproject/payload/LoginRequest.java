@@ -2,6 +2,7 @@ package thurs1030group5.majorproject.payload;
 
 import javax.validation.constraints.NotBlank;
 
+//Class to encapsulate a login request from the frontend
 public class LoginRequest {
 
     @NotBlank(message = "Username cannot be blank")

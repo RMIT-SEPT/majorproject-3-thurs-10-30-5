@@ -40,13 +40,15 @@ public class WebSecurityConfiguration extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-
+//        Allows cors
         http.cors().and().csrf().disable()
+//                Sets entry point for authentication
                 .exceptionHandling().authenticationEntryPoint(unauthorizedHandler).and()
                 .sessionManagement()
                 .sessionCreationPolicy(SessionCreationPolicy.STATELESS)
                 .and()
                 .authorizeRequests()
+//                Sets all images and public resources to be accessible by all
                 .antMatchers(
                         "/",
                         "/favicon.ico",
@@ -58,41 +60,48 @@ public class WebSecurityConfiguration extends WebSecurityConfigurerAdapter {
                         "/**/*.css",
                         "/**/*.js"
                 ).permitAll()
+//                Sets the login, registration and all public api to be accessible by all
                 .antMatchers(SecurityConstants.PUBLIC_URLS,
                         "/api/registration",
                         "/login").permitAll()
                 .anyRequest().authenticated()
                 .and()
+//                Sets form login. Will be changed in milestone 3 for better JWT implementation
                 .formLogin()
                 .loginPage("/login")
                 .permitAll()
                 .passwordParameter("password")
                 .usernameParameter("username");
 
-
+//        Adds the JWT filter
         http.addFilterBefore(jwtAuthenticationFilter(), UsernamePasswordAuthenticationFilter.class);
     }
 
+//    Bean to handle the authentication filter for JWT
     @Bean
     public JwtAuthenticationFilter jwtAuthenticationFilter() {return  new JwtAuthenticationFilter();}
 
+//    Configures the authentication manager used
     @Autowired
     public void configure(AuthenticationManagerBuilder auth) {
         auth.authenticationProvider(authenticationProvider());
     }
 
 
+//  Bean used to create the authentication manager, that manages all users
     @Override
     @Bean(BeanIds.AUTHENTICATION_MANAGER)
     protected AuthenticationManager authenticationManager() throws Exception {
         return super.authenticationManager();
     }
 
+//    Bean to create the password encoder to keep passwords secure in database
     @Bean
     public BCryptPasswordEncoder passwordEncoder() {
         return new BCryptPasswordEncoder();
     }
 
+//    Bean to create the authentication provider for logging in users
     @Bean
     DaoAuthenticationProvider authenticationProvider() {
         DaoAuthenticationProvider daoAuthenticationProvider = new DaoAuthenticationProvider();
@@ -101,7 +110,7 @@ public class WebSecurityConfiguration extends WebSecurityConfigurerAdapter {
         return daoAuthenticationProvider;
     }
 
-
+//    Bean used to configure CORS (ability for front and back end to interact)
     @Bean
     CorsConfigurationSource corsConfigurationSource() {
         final UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();

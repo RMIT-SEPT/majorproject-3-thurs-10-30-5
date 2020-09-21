@@ -3,6 +3,7 @@ package thurs1030group5.majorproject.model;
 
 import javax.persistence.*;
 
+//Represents the availability of a specific worker for working on each day of the week
 @Entity
 public class Availability {
     @Id

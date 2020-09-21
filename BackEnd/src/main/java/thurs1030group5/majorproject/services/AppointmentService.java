@@ -16,11 +16,11 @@ public class AppointmentService {
     public AppointmentService(AppointmentRepository appointmentRepository){
         this.appointmentRepository = appointmentRepository;
     }
-
+//    Gets all appointments in the database
     public List<Appointment> getAllAppointments(){
         return appointmentRepository.findAll();
     }
-
+//Gets all appointments of a specific type from the database
     public List<Appointment> getAllAppointmentByType(String type) {
         return appointmentRepository.findAllByType(type);
     }

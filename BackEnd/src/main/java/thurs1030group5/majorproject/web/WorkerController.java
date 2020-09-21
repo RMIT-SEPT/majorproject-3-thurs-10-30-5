@@ -20,6 +20,7 @@ public class WorkerController {
         this.workerService = workerService;
     }
 
+//    Method to get all workers for a business
     @PostMapping("/api/public/worker")
     private List<Worker> getWorkers(@Valid @RequestBody Business business) {
 

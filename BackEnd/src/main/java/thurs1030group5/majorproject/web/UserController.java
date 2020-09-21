@@ -17,6 +17,7 @@ public class UserController {
         this.userService = userService;
     }
 
+//    Mapping to return the user object based on their username
     @PostMapping("/api/public/user")
     private AppUser getUser(@Valid @RequestBody String username) {
         return userService.getUserByUsername(username);

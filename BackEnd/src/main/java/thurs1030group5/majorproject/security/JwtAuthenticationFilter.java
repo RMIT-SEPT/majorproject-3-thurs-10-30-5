@@ -16,6 +16,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.Collections;
 
+//Filter used to implement Json Web Tokens
 public class JwtAuthenticationFilter extends OncePerRequestFilter {
 
     @Autowired

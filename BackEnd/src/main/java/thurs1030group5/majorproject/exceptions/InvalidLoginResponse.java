@@ -1,6 +1,7 @@
 package thurs1030group5.majorproject.exceptions;
 
 
+
 public class InvalidLoginResponse {
 
     private String username;

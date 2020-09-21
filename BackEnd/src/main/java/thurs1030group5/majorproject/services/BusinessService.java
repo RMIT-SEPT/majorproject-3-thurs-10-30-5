@@ -15,12 +15,13 @@ public class BusinessService {
     public BusinessService(BusinessRepository businessRepository) {
         this.businessRepository = businessRepository;
     }
-
+//    Get all business objects in the database
     public List<Business> getAllBusinesses()
     {
         return businessRepository.findAll();
     }
 
+// Get a specific business from the database based on a worker that works for it
     public Business getBusinessFromWorkerId(Long workerId) {
         return businessRepository.findBusinessByWorker_Id(workerId);
     }
