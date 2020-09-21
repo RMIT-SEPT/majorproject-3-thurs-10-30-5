@@ -15,9 +15,9 @@ public class Booking {
 
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "username", referencedColumnName = "username")
-    private User user;
+    private AppUser user;
 
-    @OneToOne(cascade = CascadeType.ALL)
+    @ManyToOne()
     @JoinColumn(name = "worker_id", referencedColumnName = "id")
     private Worker worker;
 
@@ -37,11 +37,11 @@ public class Booking {
         this.appointment = appointment;
     }
 
-    public User getUser() {
+    public AppUser getUser() {
         return user;
     }
 
-    public void setUser(User user) {
+    public void setUser(AppUser user) {
         this.user = user;
     }
 

@@ -3,7 +3,9 @@ package thurs1030group5.majorproject.model;
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.PastOrPresent;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 @Entity
 public class Worker {
@@ -25,8 +27,8 @@ public class Worker {
     @JoinColumn(name = "availability_id", referencedColumnName = "id")
     private Availability availability;
 
-    @OneToOne(mappedBy = "worker")
-    private Booking booking;
+    @OneToMany(targetEntity = Booking.class, mappedBy = "worker", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    private List<Booking> bookings;
 
     public Long getId() {
         return id;

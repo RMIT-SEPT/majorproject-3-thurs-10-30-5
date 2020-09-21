@@ -1,6 +1,6 @@
 package thurs1030group5.majorproject.model;
 
-import com.fasterxml.jackson.databind.util.ArrayBuilders;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import javax.persistence.*;
 import java.util.ArrayList;
@@ -16,9 +16,9 @@ public class Business {
     @OneToMany(targetEntity = Worker.class, mappedBy = "business", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private List<Worker> worker = new ArrayList<>();
 
-    @ManyToOne()
+    @OneToOne()
     @JoinColumn(name = "owner_username", referencedColumnName = "username", insertable = false, updatable = false)
-    private User user;
+    private AppUser user;
 
     public Long getId() {
         return id;

@@ -6,9 +6,7 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
-import thurs1030group5.majorproject.DTO.UserDTO;
-import thurs1030group5.majorproject.model.Business;
-import thurs1030group5.majorproject.model.User;
+import thurs1030group5.majorproject.model.AppUser;
 import thurs1030group5.majorproject.repository.RoleRepository;
 import thurs1030group5.majorproject.repository.UserRepository;
 
@@ -30,14 +28,14 @@ public class UserService implements UserDetailsService {
     public UserDetails loadUserByUsername(String username)
             throws UsernameNotFoundException {
 
-        User user = userRepository.findByUsername(username);
+        AppUser user = userRepository.findByUsername(username);
         if(user == null) {
             throw new UsernameNotFoundException("User not found");
         }
-        return new UserDTO(user);
+        return user;
     }
 
-    public User saveUser(User user) {
+    public AppUser saveUser(AppUser user) {
         user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
         user.setEnabled(true);
 //        FOR WHEN ROLES ARE ADDED
@@ -46,7 +44,7 @@ public class UserService implements UserDetailsService {
         return userRepository.save(user);
     }
 
-    public User getUserByUsername(String username) {
+    public AppUser getUserByUsername(String username) {
         return userRepository.findByUsername(username);
     }
 }

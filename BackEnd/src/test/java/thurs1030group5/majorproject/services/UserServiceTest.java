@@ -10,8 +10,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
-import thurs1030group5.majorproject.DTO.UserDTO;
-import thurs1030group5.majorproject.model.User;
+import thurs1030group5.majorproject.model.AppUser;
 import thurs1030group5.majorproject.repository.UserRepository;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -29,10 +28,9 @@ public class UserServiceTest {
 
     @BeforeEach
     public void setUp() {
-        User testUser = new User();
+        AppUser testUser = new AppUser();
         testUser.setUsername("UserTest");
-        UserDTO testUserDTO = new UserDTO(testUser);
-        Mockito.when(userRepository.findByUsername(testUserDTO.getUsername())).thenReturn(testUser);
+        Mockito.when(userRepository.findByUsername(testUser.getUsername())).thenReturn(testUser);
         Mockito.when(userRepository.findByUsername("invalidUsername")).thenReturn(null);
     }
     @Test

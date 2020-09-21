@@ -6,7 +6,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.FieldError;
 import org.springframework.web.bind.annotation.*;
-import thurs1030group5.majorproject.model.User;
+import thurs1030group5.majorproject.model.AppUser;
 import thurs1030group5.majorproject.services.UserService;
 
 import javax.validation.Valid;
@@ -28,7 +28,7 @@ public class LoginController {
         this.userService = userService;
     }
     @PostMapping("/api/registration")
-    private ResponseEntity<?> createUser(@Valid @RequestBody User user, BindingResult result) {
+    private ResponseEntity<?> createUser(@Valid @RequestBody AppUser appUser, BindingResult result) {
         if (result.hasErrors()){
             Map<String, String> errorMap = new HashMap<>();
 //            Finds error in response entity and gives all details for each error
@@ -38,8 +38,8 @@ public class LoginController {
 //            Returns a generic "Invalid User object"
             return new ResponseEntity<>("Invalid User Object", HttpStatus.BAD_REQUEST);
         }
-        userService.saveUser(user);
-        return new ResponseEntity<>(user, HttpStatus.CREATED);
+        userService.saveUser(appUser);
+        return new ResponseEntity<>(appUser, HttpStatus.CREATED);
     }
 
 //    TODO fix post login

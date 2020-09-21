@@ -1,18 +1,23 @@
 package thurs1030group5.majorproject.model;
 
 
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
+import org.springframework.security.core.userdetails.UserDetails;
+
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 import java.util.Set;
 
 
 
 
-@Entity
-public class User {
+@Entity(name = "User")
+public class AppUser implements UserDetails {
     @Id
     @Size(min = 3, message = "*Your user name must have at least 3 characters")
     @NotBlank(message = "*Please provide a user name")
@@ -30,34 +35,41 @@ public class User {
     //REQUIRED FOR SPRING SECURITY (SAYS WHETHER ACTIVE USER, CANNOT AUTHENTICATE IF FALSE)
     private Boolean enabled;
 
-    //Generate ManyToMany relationship table as user_role w/ user.username and role.id columns
-//    TODO EAGER FETCH IS INEFFICIENT, HOWEVER DEFAULT GIVES EXCEPTION. LOOK INTO BETTER WAYS?
-//    @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-//    @JoinTable(
-//            name = "user_role",
-//            joinColumns = {@JoinColumn(name = "user_username")},
-//            inverseJoinColumns = {@JoinColumn(name = "role_id")}
-//    )
-//    private Set<Role> roles;
-
     @ManyToOne()
     @JoinColumn(name = "role_id", referencedColumnName = "id", insertable = false, updatable = false)
     private Role role;
 
-    @OneToMany(targetEntity = Business.class, mappedBy = "user", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    private List<Business> businesses = new ArrayList<>();
 
+    @Override
+    public String getPassword() {
+        return password;
+    }
+
+    @Override
     public String getUsername() {
         return username;
     }
+
+    @Override
+    public boolean isAccountNonExpired() {
+        return true;
+    }
+
+    @Override
+    public boolean isAccountNonLocked() {
+        return true;
+    }
+
+    @Override
+    public boolean isCredentialsNonExpired() {
+        return true;
+    }
+
 
     public void setUsername(String username) {
         this.username = username;
     }
 
-    public String getPassword() {
-        return password;
-    }
 
     public void setPassword(String password) {
         this.password = password;
@@ -71,19 +83,27 @@ public class User {
         this.email = email;
     }
 
-    public Role getRoles() {
+    public Role getRole() {
         return role;
     }
 
-    public void setRoles(Role roles) {
+    public void setRole(Role role) {
         this.role = role;
     }
 
-    public Boolean isEnabled() {
+    @Override
+    public boolean isEnabled() {
         return enabled;
     }
 
     public void setEnabled(boolean enabled) {
         this.enabled = enabled;
+    }
+
+    @Override
+    public Collection<? extends GrantedAuthority> getAuthorities() {
+        List<SimpleGrantedAuthority> authorityList = new ArrayList<>();
+        authorityList.add(new SimpleGrantedAuthority(role.getRole()));
+        return authorityList;
     }
 }
