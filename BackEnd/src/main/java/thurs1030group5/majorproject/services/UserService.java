@@ -24,6 +24,7 @@ public class UserService implements UserDetailsService {
         this.bCryptPasswordEncoder = bCryptPasswordEncoder;
 
     }
+//    Retrieves the user from database, throws exception if not found
     @Override
     public UserDetails loadUserByUsername(String username)
             throws UsernameNotFoundException {
@@ -35,12 +36,10 @@ public class UserService implements UserDetailsService {
         return user;
     }
 
+//    Saves the user into the database. Also used to update user details
     public AppUser saveUser(AppUser user) {
         user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
         user.setEnabled(true);
-//        FOR WHEN ROLES ARE ADDED
-//        Role userRole = roleRepository.findByRole("ADMIN");
-//        user.setRoles(new HashSet<Role>(Arrays.asList(userRole)));
         return userRepository.save(user);
     }
 
