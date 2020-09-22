@@ -13,7 +13,7 @@ const apiAxios = axios.create({
 const api = {
   axios: apiAxios,
   isLoggedIn: false,
-  async register({ data }) {
+  async register(data) {
     const config = {
       method: 'post',
       url: 'http://localhost:8080/api/registration',
@@ -27,9 +27,11 @@ const api = {
 
     axios(config)
       .then(function(response) {
+        console.log(response);
         return response;
       })
       .catch(function(error) {
+        console.log(error);
         return error;
       });
   },
@@ -58,11 +60,11 @@ const api = {
     await axios(config).then(
       response => {
         //return response.data;
-
+        console.log(response);
         return credentials;
       },
       error => {
-        //console.log(error);
+        console.log(error);
         return 'Login Unsuccessful';
       }
     );
