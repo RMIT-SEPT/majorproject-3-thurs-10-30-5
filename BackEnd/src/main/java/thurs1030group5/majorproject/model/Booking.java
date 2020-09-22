@@ -1,10 +1,14 @@
+//CLASSNAME: Booking
+//DESCRIPTION: Booking table that connects appointment, user, and worker by their primary keys
+
 package thurs1030group5.majorproject.model;
 
 import javax.persistence.*;
 
-//Booking table that connects appointment, user, and worker by their primary keys
 @Entity
 public class Booking {
+
+    //====================== COLUMNS ======================//
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -13,14 +17,18 @@ public class Booking {
     @JoinColumn(name = "appointment_id", referencedColumnName = "id")
     private Appointment appointment;
 
-    @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "username", referencedColumnName = "username")
-    private User user;
+    //Many-to-one relationship with user entities, bookings can only have one user
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "user", referencedColumnName = "username")
+    private AppUser user;
 
-    @OneToOne(cascade = CascadeType.ALL)
+    //Many-to-one relationship with worker entities, bookings can only have one worker
+    @ManyToOne()
     @JoinColumn(name = "worker_id", referencedColumnName = "id")
     private Worker worker;
+    //====================== COLUMNS ======================//
 
+    //====================== GETTERS / SETTERS ======================//
     public Long getId() {
         return id;
     }
@@ -37,11 +45,11 @@ public class Booking {
         this.appointment = appointment;
     }
 
-    public User getUser() {
+    public AppUser getUser() {
         return user;
     }
 
-    public void setUser(User user) {
+    public void setUser(AppUser user) {
         this.user = user;
     }
 
@@ -52,4 +60,5 @@ public class Booking {
     public void setWorker(Worker worker) {
         this.worker = worker;
     }
+    //====================== GETTERS / SETTERS ======================//
 }
