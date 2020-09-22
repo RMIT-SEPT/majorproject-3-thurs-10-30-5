@@ -14,6 +14,9 @@
 * Github repository : https://github.com/RMIT-SEPT/majorproject-3-thurs-10-30-5
 * Trello Board : https://trello.com/b/TCYa6H6K/sept-project-thurs-1030-team-5
 * Documentation Repo : https://drive.google.com/drive/u/2/folders/1ffTZHxtHm6F03Q_C3xjRi86C5wd3WGXL
+* AWS account : http://ec2-3-95-192-154.compute-1.amazonaws.com/ 
+* CircleCI : https://github.com/s3541742/MajorProjectCI 
+
 
 ## Code documentation
 
