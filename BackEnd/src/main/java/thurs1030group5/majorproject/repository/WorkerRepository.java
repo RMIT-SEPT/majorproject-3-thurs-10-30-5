@@ -1,6 +1,5 @@
 package thurs1030group5.majorproject.repository;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.springframework.data.repository.CrudRepository;
 import thurs1030group5.majorproject.model.Worker;
 

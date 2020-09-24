@@ -66,6 +66,14 @@ public class Worker {
         this.business = business;
     }
 
+    public Long getAvailabilityId() {
+        return availability.getId();
+    }
+
+    public Availability getAvailability() {
+        return availability;
+    }
+
     public void setAvailability(Availability availability) {
         this.availability = availability;
     }
