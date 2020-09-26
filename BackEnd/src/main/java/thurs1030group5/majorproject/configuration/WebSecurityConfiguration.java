@@ -43,10 +43,10 @@ public class WebSecurityConfiguration extends WebSecurityConfigurerAdapter {
 //        Allows cors
         http.cors().and().csrf().disable()
 //                Sets entry point for authentication
-                .exceptionHandling().authenticationEntryPoint(unauthorizedHandler).and()
-                .sessionManagement()
-                .sessionCreationPolicy(SessionCreationPolicy.STATELESS)
-                .and()
+//                .exceptionHandling().authenticationEntryPoint(unauthorizedHandler).and()
+//                .sessionManagement()
+//                .sessionCreationPolicy(SessionCreationPolicy.STATELESS)
+//                .and()
                 .authorizeRequests()
 //                Sets all images and public resources to be accessible by all
                 .antMatchers(
