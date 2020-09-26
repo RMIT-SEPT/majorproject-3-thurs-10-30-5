@@ -21,8 +21,13 @@ public class WorkerService {
 
 
     }
+
+    public Worker getWorker(Long workerId) {
+        return workerRepository.findWorkerById(workerId);
+    }
 //Service to get all workers related to a business
     public List<Worker> getAllWorkers(Long businessId) {
         return workerRepository.findAllByBusiness_Id(businessId);
     }
 }
+
