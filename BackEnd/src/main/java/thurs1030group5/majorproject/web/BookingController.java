@@ -1,9 +1,12 @@
 package thurs1030group5.majorproject.web;
 
 
+import com.google.gson.GsonBuilder;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
@@ -16,6 +19,7 @@ import thurs1030group5.majorproject.services.UserService;
 import thurs1030group5.majorproject.services.WorkerService;
 
 import javax.validation.Valid;
+import java.util.List;
 
 @RestController
 public class BookingController {
@@ -32,7 +36,7 @@ public class BookingController {
 
 
 
-    @PostMapping("/api/public/booking/create")
+    @PostMapping("/api/booking/create")
     public ResponseEntity<?> makeBooking(@Valid @RequestBody Booking booking) {
 
 //        To make sure there is no possibility of discrepancy between front end and back end data, set
@@ -42,4 +46,13 @@ public class BookingController {
         bookingService.createBooking(booking);
         return new ResponseEntity<>(HttpStatus.CREATED);
     }
+
+    @GetMapping("/api/booking/customer")
+    public List<Booking> getAllCustomerBookings() {
+        Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        String currentUsername = SecurityContextHolder.getContext().getAuthentication().getName();
+        return bookingService.getCustomerBookings(currentUsername);
+    }
+
+
 }

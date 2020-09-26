@@ -6,6 +6,8 @@ import thurs1030group5.majorproject.model.Appointment;
 import thurs1030group5.majorproject.model.Booking;
 import thurs1030group5.majorproject.repository.BookingRepository;
 
+import java.util.List;
+
 @Service
 public class BookingService {
 
@@ -20,4 +22,10 @@ public class BookingService {
     public Booking createBooking(Booking booking) {
         return bookingRepository.save(booking);
     }
+
+    public List<Booking> getCustomerBookings(String username) {
+        return bookingRepository.findBookingsByUser_username(username);
+    }
+
+
 }
