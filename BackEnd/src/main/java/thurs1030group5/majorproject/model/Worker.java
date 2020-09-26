@@ -35,6 +35,12 @@ public class Worker {
     //List of all bookings made with a worker
     @OneToMany(targetEntity = Booking.class, mappedBy = "worker", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private List<Booking> bookings;
+
+    //One-tone relationship with AppUser as worker's account
+    //Worker's can only have one account and users can only have one worker
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "account", referencedColumnName = "username")
+    private AppUser user;
     //====================== COLUMNS ======================//
 
     //====================== GETTERS / SETTERS ======================//

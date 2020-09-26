@@ -41,7 +41,7 @@ UNLOCK TABLES;
 
 LOCK TABLES `booking` WRITE;
 /*!40000 ALTER TABLE `booking` DISABLE KEYS */;
-INSERT INTO `booking` VALUES (1,1,'Aliesofely',6),(2,2,'Diferathe',7),(3,3,'Prinkin',8),(4,4,'Ressoare',8),(5,5,'Aliesofely',10),(6,6,'Aliesofely',14),(7,7,'Prinkin',6),(8,8,'xx_Sors1951',12),(9,9,'Whined22',11),(10,10,'Mady2000',9);
+INSERT INTO `booking` VALUES (11,1,'Aliesofely',6),(12,2,'Diferathe',7),(13,3,'Prinkin',8),(14,4,'Ressoare',8),(15,5,'Aliesofely',1),(16,6,'Aliesofely',5),(17,7,'Prinkin',6),(18,8,'xx_Sors1951',3),(19,9,'Whined22',2),(20,10,'Mady2000',5);
 /*!40000 ALTER TABLE `booking` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -61,7 +61,7 @@ UNLOCK TABLES;
 
 LOCK TABLES `role` WRITE;
 /*!40000 ALTER TABLE `role` DISABLE KEYS */;
-INSERT INTO `role` VALUES (1,'Executive Chief'),(2,'Salesperson'),(3,'Project Manager'),(4,'Scrum Master'),(5,'Accountant');
+INSERT INTO `role` VALUES (1,'Worker'),(2,'Customer'),(3,'Admin');
 /*!40000 ALTER TABLE `role` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -71,7 +71,7 @@ UNLOCK TABLES;
 
 LOCK TABLES `user` WRITE;
 /*!40000 ALTER TABLE `user` DISABLE KEYS */;
-INSERT INTO `user` VALUES ('Aliesofely','JakeLemmon@gmail.com',_binary '','$2a$10$t7nHhkFHZMSRYnka4Ez0KeeAugbi.92xG0BSuLq5QTRr8MLmUhmNq',3),('Diferathe','JesseBowmaker@yahoo.com',_binary '','$2a$10$t7nHhkFHZMSRYnka4Ez0KeeAugbi.92xG0BSuLq5QTRr8MLmUhmNq',5),('Mady2000','DominicChave@gmail.com',_binary '','$2a$10$t7nHhkFHZMSRYnka4Ez0KeeAugbi.92xG0BSuLq5QTRr8MLmUhmNq',1),('Prinkin','OscarSoares@hotmail.com',_binary '','$2a$10$t7nHhkFHZMSRYnka4Ez0KeeAugbi.92xG0BSuLq5QTRr8MLmUhmNq',4),('Ressoare','DanielErvin@gmail.com',_binary '','$2a$10$t7nHhkFHZMSRYnka4Ez0KeeAugbi.92xG0BSuLq5QTRr8MLmUhmNq',2),('Whined22','MasonRischbieth@gmail.com',_binary '','$2a$10$t7nHhkFHZMSRYnka4Ez0KeeAugbi.92xG0BSuLq5QTRr8MLmUhmNq',1),('xx_Sors1951','DeclanWhitta@bigpond.com.au',_binary '','$2a$10$t7nHhkFHZMSRYnka4Ez0KeeAugbi.92xG0BSuLq5QTRr8MLmUhmNq',2);
+INSERT INTO `user` VALUES ('Aliesofely','NathanFetherston@gmail.com',_binary '','$2a$10$t7nHhkFHZMSRYnka4Ez0KeeAugbi.92xG0BSuLq5QTRr8MLmUhmNq',3),('Behinscathe','GemmaChifley@outlook.com',_binary '','$2a$10$t7nHhkFHZMSRYnka4Ez0KeeAugbi.92xG0BSuLq5QTRr8MLmUhmNq',2),('Diferathe','JohnCrick@yahoo.com',_binary '','$2a$10$t7nHhkFHZMSRYnka4Ez0KeeAugbi.92xG0BSuLq5QTRr8MLmUhmNq',1),('Drecoughter','LucaHiggins@outlook.com',_binary '','$2a$10$t7nHhkFHZMSRYnka4Ez0KeeAugbi.92xG0BSuLq5QTRr8MLmUhmNq',1),('Fough1996','AshleyYoung@iCloud.com',_binary '','$2a$10$t7nHhkFHZMSRYnka4Ez0KeeAugbi.92xG0BSuLq5QTRr8MLmUhmNq',2),('Harstand','MillaHixson@iCloud.com',_binary '','$2a$10$t7nHhkFHZMSRYnka4Ez0KeeAugbi.92xG0BSuLq5QTRr8MLmUhmNq',2),('Hatioul','KateMacartney@gmail.com',_binary '','$2a$10$t7nHhkFHZMSRYnka4Ez0KeeAugbi.92xG0BSuLq5QTRr8MLmUhmNq',1),('Henin1991','FinnTarrant@iCloud.com',_binary '','$2a$10$t7nHhkFHZMSRYnka4Ez0KeeAugbi.92xG0BSuLq5QTRr8MLmUhmNq',1),('Hincycle','JonathanMorison@gmail.com',_binary '','$2a$10$t7nHhkFHZMSRYnka4Ez0KeeAugbi.92xG0BSuLq5QTRr8MLmUhmNq',2),('Immalf','RoseLawley@gmail.com',_binary '','$2a$10$t7nHhkFHZMSRYnka4Ez0KeeAugbi.92xG0BSuLq5QTRr8MLmUhmNq',2),('Mady2000','DominicChave@gmail.com',_binary '','$2a$10$t7nHhkFHZMSRYnka4Ez0KeeAugbi.92xG0BSuLq5QTRr8MLmUhmNq',3),('Nothery','KobyWinter@gmail.com',_binary '','$2a$10$t7nHhkFHZMSRYnka4Ez0KeeAugbi.92xG0BSuLq5QTRr8MLmUhmNq',2),('Onday1937','PoppyPerkin@iCloud.com',_binary '','$2a$10$t7nHhkFHZMSRYnka4Ez0KeeAugbi.92xG0BSuLq5QTRr8MLmUhmNq',2),('Prinkin','SophiaWigg@hotmail.com',_binary '','$2a$10$t7nHhkFHZMSRYnka4Ez0KeeAugbi.92xG0BSuLq5QTRr8MLmUhmNq',1),('Ressoare','JaxonBirrell@gmail.com',_binary '','$2a$10$t7nHhkFHZMSRYnka4Ez0KeeAugbi.92xG0BSuLq5QTRr8MLmUhmNq',1),('Sicticived','AliceBoxer@outlook.com',_binary '','$2a$10$t7nHhkFHZMSRYnka4Ez0KeeAugbi.92xG0BSuLq5QTRr8MLmUhmNq',1),('Wastione','JettSutton@gmail.com',_binary '','$2a$10$t7nHhkFHZMSRYnka4Ez0KeeAugbi.92xG0BSuLq5QTRr8MLmUhmNq',1),('Whimed','AngelinaSingh@hotmail.com',_binary '','$2a$10$t7nHhkFHZMSRYnka4Ez0KeeAugbi.92xG0BSuLq5QTRr8MLmUhmNq',1),('Whined22','MasonRischbieth@gmail.com',_binary '','$2a$10$t7nHhkFHZMSRYnka4Ez0KeeAugbi.92xG0BSuLq5QTRr8MLmUhmNq',3),('xx_Sors1951','EllaGillbee@bigpond.com.au',_binary '','$2a$10$t7nHhkFHZMSRYnka4Ez0KeeAugbi.92xG0BSuLq5QTRr8MLmUhmNq',1);
 /*!40000 ALTER TABLE `user` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -81,7 +81,7 @@ UNLOCK TABLES;
 
 LOCK TABLES `worker` WRITE;
 /*!40000 ALTER TABLE `worker` DISABLE KEYS */;
-INSERT INTO `worker` VALUES (6,'John','Crick',1,3),(7,'Nathan','Fetherston',2,2),(8,'Jett','Sutton',3,1),(9,'Ella','Gillbee',4,1),(10,'Emma','Vosper',5,3),(11,'Luca','Higgins',6,3),(12,'Alice','Boxer',7,3),(13,'Angelina','Singh',8,2),(14,'Sophia','Wigg',9,3),(15,'Jaxon','Birrell',10,1);
+INSERT INTO `worker` VALUES (1,'John','Crick',1,3,'Diferathe'),(2,'Nathan','Fetherston',2,2,'Hatioul'),(3,'Jett','Sutton',3,1,'Wastione'),(4,'Ella','Gillbee',4,1,'xx_Sors1951'),(5,'Emma','Vosper',5,3,'Henin1991'),(6,'Luca','Higgins',6,3,'Drecoughter'),(7,'Alice','Boxer',7,3,'Sicticived'),(8,'Angelina','Singh',8,2,'Whimed'),(9,'Sophia','Wigg',9,3,'Prinkin'),(10,'Jaxon','Birrell',10,1,'Ressoare');
 /*!40000 ALTER TABLE `worker` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -94,4 +94,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2020-09-21 20:05:29
+-- Dump completed on 2020-09-26 21:55:17

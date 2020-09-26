@@ -19,7 +19,7 @@ public class Booking {
 
     //Many-to-one relationship with user entities, bookings can only have one user
     @ManyToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "user", referencedColumnName = "username")
+    @JoinColumn(name = "customer", referencedColumnName = "username")
     private AppUser user;
 
     //Many-to-one relationship with worker entities, bookings can only have one worker
