@@ -18,13 +18,15 @@ public class Appointment {
 
     private Date appointmentTime;
 
-    @NotBlank(message = "*Appointment must have a type")
-    private String type;
-
     private String description;
 
     @PastOrPresent
     private Date dateCreated;
+
+    //Many-to-one relationship with appointment type, appointments can only have one type
+    @ManyToOne()
+    @JoinColumn(name = "appointment_type", referencedColumnName = "type")
+    private AppointmentType appointmentType;
     //====================== COLUMNS ======================//
 
     //====================== GETTERS / SETTERS ======================//
@@ -44,12 +46,12 @@ public class Appointment {
         this.appointmentTime = appointmentTime;
     }
 
-    public String getType() {
-        return type;
+    public AppointmentType getType() {
+        return appointmentType;
     }
 
-    public void setType(String type) {
-        this.type = type;
+    public void setType(AppointmentType appointmentType) {
+        this.appointmentType = appointmentType;
     }
 
     public String getDescription() {

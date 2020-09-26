@@ -3,6 +3,7 @@ package thurs1030group5.majorproject.services;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import thurs1030group5.majorproject.model.Appointment;
+import thurs1030group5.majorproject.model.AppointmentType;
 import thurs1030group5.majorproject.repository.AppointmentRepository;
 
 import java.util.ArrayList;
@@ -21,7 +22,7 @@ public class AppointmentService {
         return appointmentRepository.findAll();
     }
 //Gets all appointments of a specific type from the database
-    public List<Appointment> getAllAppointmentByType(String type) {
-        return appointmentRepository.findAllByType(type);
+    public List<Appointment> getAllAppointmentByType(AppointmentType appointmentType) {
+        return appointmentRepository.findAllByAppointmentType(appointmentType);
     }
 }
