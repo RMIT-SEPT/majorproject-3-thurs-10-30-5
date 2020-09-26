@@ -23,8 +23,12 @@ public class WorkerController {
 //    Method to get all workers for a business
     @PostMapping("/api/public/worker")
     private List<Worker> getWorkers(@Valid @RequestBody Business business) {
-
         return workerService.getAllWorkers((business.getId()));
+    }
+
+    @PostMapping("/api/public/worker/availability/day")
+    private List<Worker> getWorkersByAvailableDay(@Valid @RequestBody String day){
+        return workerService.getWorkersByAvailableDay(day);
     }
 
 }
