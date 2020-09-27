@@ -1,5 +1,7 @@
 import axios from 'axios';
 
+import useUser from '../hooks/useUser';
+
 const qs = require('querystring');
 
 const apiAxios = axios.create({
@@ -39,29 +41,33 @@ const api = {
     this.isLoggedIn = isLoggedIn;
   },
   async login({ username, password }) {
-    var test = qs.stringify({
+    var loginData = JSON.stringify({
       username: username,
       password: password
     });
-    const credentials = {
-      sucessful: 'false',
-      username: username
-    };
+
     const config = {
       method: 'post',
       url: 'http://localhost:8080/login',
       headers: {
-        'Content-Type': 'application/x-www-form-urlencoded',
+        'Content-Type': 'application/json',
         'Access-control-Allow-Origin': '*'
       },
-      data: test
+      data: loginData
     };
 
     await axios(config).then(
       response => {
         //return response.data;
         console.log(response);
-        return credentials;
+
+        const user = {
+          loggedIn: true,
+          username: username,
+          token: response.data.token
+        };
+
+        return response;
       },
       error => {
         console.log(error);
