@@ -3,6 +3,9 @@
 
 package thurs1030group5.majorproject.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonInclude;
+
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 import java.util.List;
@@ -35,6 +38,12 @@ public class Worker {
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "account", referencedColumnName = "username")
     private AppUser user;
+
+    @Transient
+    private String firstName;
+
+    @Transient
+    private String lastName;
     //====================== COLUMNS ======================//
 
     //====================== GETTERS / SETTERS ======================//
@@ -53,13 +62,39 @@ public class Worker {
     public Long getAvailabilityId() {
         return availability.getId();
     }
-
+    @JsonIgnore
     public Availability getAvailability() {
         return availability;
     }
 
     public void setAvailability(Availability availability) {
         this.availability = availability;
+    }
+    @JsonIgnore
+    public AppUser getUser() {
+        return user;
+    }
+
+    public void setUser(AppUser user) {
+        this.user = user;
+    }
+    @JsonInclude
+    @Transient
+    public String getFirstName() {
+        return firstName;
+    }
+    @Transient
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+    @JsonInclude
+    @Transient
+    public String getLastName() {
+        return lastName;
+    }
+    @Transient
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
     }
     //====================== GETTERS / SETTERS ======================//
 }
