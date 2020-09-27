@@ -15,12 +15,6 @@ public class Worker {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @NotBlank(message = "*Worker must have a first name")
-    private String firstName;
-
-    @NotBlank(message =  "*Worker must have a last name")
-    private String lastName;
-
     //Many-to-one relationship with business entities, worker can only work for one business
     @ManyToOne()
     @JoinColumn(name = "business_id", referencedColumnName = "id", insertable = false, updatable = false)
@@ -50,22 +44,6 @@ public class Worker {
 
     public void setId(Long id) {
         this.id = id;
-    }
-
-    public String getFirstName() {
-        return firstName;
-    }
-
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
-    }
-
-    public String getLastName() {
-        return lastName;
-    }
-
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
     }
 
     public void setBusiness(Business business) {

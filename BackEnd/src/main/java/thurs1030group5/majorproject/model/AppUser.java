@@ -26,8 +26,9 @@ public class AppUser implements UserDetails {
     @NotBlank(message = "*Please provide your password")
     private String password;
 
-    @NotBlank(message = "*Please provide your email")
-    private String email;
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "details_id", referencedColumnName = "id")
+    private AppUserDetails userDetails;
 
     //Holds all bookings a customer/worker account has
     @OneToMany(targetEntity = Booking.class, mappedBy = "user", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
@@ -61,14 +62,6 @@ public class AppUser implements UserDetails {
         this.password = password;
     }
 
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
     public Role getRole() {
         return role;
     }
@@ -83,6 +76,30 @@ public class AppUser implements UserDetails {
     }
 
     public void setEnabled(boolean enabled) {
+        this.enabled = enabled;
+    }
+
+    public AppUserDetails getUserDetails() {
+        return userDetails;
+    }
+
+    public void setUserDetails(AppUserDetails userDetails) {
+        this.userDetails = userDetails;
+    }
+
+    public List<Booking> getBookings() {
+        return bookings;
+    }
+
+    public void setBookings(List<Booking> bookings) {
+        this.bookings = bookings;
+    }
+
+    public Boolean getEnabled() {
+        return enabled;
+    }
+
+    public void setEnabled(Boolean enabled) {
         this.enabled = enabled;
     }
     //====================== GETTERS / SETTERS ======================//
