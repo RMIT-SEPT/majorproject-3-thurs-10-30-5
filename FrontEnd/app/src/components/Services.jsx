@@ -28,7 +28,6 @@ export default function Services() {
   const getWorkers = React.useCallback(async () => {
     //Create object with necessary data required to pass to the API via POST
     const data = { id: serviceValue.value, name: serviceValue.label };
-
     //Set the headers required for the API request
     const options = {
       headers: {
@@ -36,10 +35,9 @@ export default function Services() {
         'Access-control-Allow-Origin': '*'
       }
     };
-
     //Make the axios POST request, using the data object created earlier, and the headers.
     const response = await axios.post('http://localhost:8080/api/public/worker', JSON.stringify(data), options);
-
+    console.log(response);
     //Modify the array returned so it can be placed into the select component.
     const workersResponse = response.data.map(({ id: value, firstName: label, ...rest }) => ({
       value,
@@ -88,6 +86,41 @@ export default function Services() {
 
     return availabilityArr;
   }, [workerValue]); //Set the dependency, so this POST request is called only when there is a change in the serviceValue state.
+
+  //////////////////////////////////////////////////////////////////
+  //=======================CREATEBOOKING==========================//
+  /////////////////////////////////////////////////////////////////
+  const createBooking = React.useCallback(async () => {
+    //Create object with necessary data required to pass to the API via POST
+    const data = {
+      appointment: {
+        appointmentTime: '2020-09-16T15:47:58:673Z',
+        type: 'TESTTYPE',
+        description: 'TEST',
+        dateCreated: '2020-09-16T15:47:58:673Z'
+      },
+      user: {
+        username: 'testtest'
+      },
+      worker: {
+        id: 7
+      }
+    };
+
+    //Set the headers required for the API request
+    const options = {
+      headers: {
+        'Content-Type': 'application/json',
+        'Access-control-Allow-Origin': '*'
+      }
+    };
+    console.log('you clicked the button...i hope');
+    //Make the axios POST request, using the data object created earlier, and the headers.
+    const response = await axios.post('http://localhost:8080/api/booking/create', JSON.stringify(data), options);
+
+    console.log(response);
+    return response;
+  }, []);
 
   //use react Loads to complete the promise and store the data
   const servicesRecord = Loads.useLoads('services', getServices);
@@ -161,7 +194,7 @@ export default function Services() {
                     placeholder="Select a day to book your appointment..."
                     value={value}
                   />
-                  <Button palette="primary" width="100%" margin="auto">
+                  <Button palette="primary" width="100%" margin="auto" onClick={createBooking}>
                     Book Now!
                   </Button>
                 </React.Fragment>
