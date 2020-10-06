@@ -3,6 +3,8 @@
 
 package thurs1030group5.majorproject.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 
 @Entity
@@ -20,6 +22,7 @@ public class Booking {
     //Many-to-one relationship with user entities, bookings can only have one user
     @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "customer", referencedColumnName = "username")
+    @JsonIgnore
     private AppUser user;
 
     //Many-to-one relationship with worker entities, bookings can only have one worker
