@@ -3,6 +3,7 @@
 
 package thurs1030group5.majorproject.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -45,6 +46,7 @@ public class AppUser implements UserDetails {
 
     //====================== GETTERS / SETTERS ======================//
     @Override
+    @JsonIgnore
     public String getPassword() {
         return password;
     }
@@ -78,7 +80,7 @@ public class AppUser implements UserDetails {
     public void setEnabled(boolean enabled) {
         this.enabled = enabled;
     }
-
+    @JsonIgnore
     public AppUserDetails getUserDetails() {
         return userDetails;
     }
@@ -86,7 +88,7 @@ public class AppUser implements UserDetails {
     public void setUserDetails(AppUserDetails userDetails) {
         this.userDetails = userDetails;
     }
-
+    @JsonIgnore
     public List<Booking> getBookings() {
         return bookings;
     }
