@@ -9,61 +9,45 @@ export default function AboutUs() {
         minHeight="100%"
         minWidth="100vh"
         textAlign="center"
-        wrapperProps={{ backgroundImage: "url('/images/adweek-email-marketing-stock-photos.jpg')" }}
-      >
+        wrapperProps={{ backgroundImage: "url('/images/adweek-email-marketing-stock-photos.jpg')", backgroundSize: "100%", backgroundRepeat: "no-repeat" }}>
         <Heading
           textAlign="center"
-          color="white"
-          style={{ background: 'rgba(0, 0, 0, 0.4)', fontWeight: 'normal', padding: ' 100px' }}
-        >
-          ABOUT US
+          color="black"
+          style={{ background: 'rgba(255, 255, 255, 0.8)', fontSize:'75px', fontWeight: 'lighter', padding: ' 100px' }}>
+          About Us
+          <br/><br/>
+          <Paragraph textAlign="center" fontStyle="italic">
+              Since 2020, our objective has been to get work done.
+          </Paragraph>
         </Heading>
       </PageContent>
-      <PageContent alignContent="center" paddingBottom="350px"
-      >
-        <Heading textAlign="center" fontWeight="normal">
-          OUR MISSION
-        </Heading>
-        <hr />
-        <br />
-        <Paragraph textAlign="center">
+
+      <PageContent textAlign="center" paddingBottom="100px">  
+        <br/>
+        <Paragraph textAlign = "left" paddingLeft="18%" paddingRight="18%">
           Our mission, as a team and family, is to complete our task. We are consistently trying to strive to achieve
           our vision for the community's sake. In doing this, we will deliver excellence in every aspect of our website
-          and meet the expectations of the many. Now, meet the team!
+          and meet the expectations of the many. 
         </Paragraph>
-        <br />
-        <br />
+            
 
+        <br/>
         <Heading textAlign="center" fontSize="400" style={{ fontWeight: 'normal' }}>
           MEET THE TEAM!
         </Heading>
-        <hr width="70%" />
-
+        <hr width="100%" /><br/>
         <Paragraph textAlign="center">
-          <b>Your project manager:</b> Athanasios Papaharisis (s3372134)
+          Your project manager: Athanasios Papaharisis (s3372134)
         </Paragraph>
-
         <Paragraph textAlign="center">
-          <b>Your front end developers:</b> Raymond Caucci (s3779722) and Marco Nadalin (s3782230)
+          Your front end developers: Raymond Caucci (s3779722) and Marco Nadalin (s3782230)
         </Paragraph>
-
         <Paragraph textAlign="center">
-          <b>Your back end developers:</b> Michael Weston (s3541742) and Marcus Matic (s3703981)
+          Your back end developers: Michael Weston (s3541742) and Marcus Matic (s3703981)
         </Paragraph>
-
-        <Paragraph textAlign="center">You can contact us here!</Paragraph>
-
-        <Button
-          marginRight="40%"
-          marginLeft="42%"
-          palette="primary"
-          variant="outlined"
-          use={RouterLink}
-          to="/contactus"
-        >
-          Contact Us
-        </Button>
+        <br/><br/>
       </PageContent>
+
     </React.Fragment>
   );
 }

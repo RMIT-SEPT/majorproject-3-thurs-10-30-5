@@ -30,9 +30,6 @@ function MainLayoutWrapper({ children }) {
         <TopNav.Item marginLeft="major-2" use={RouterLink} to="/aboutus">
           About Us
         </TopNav.Item>
-        <TopNav.Item marginLeft="major-2" use={RouterLink} to="/">
-          FAQ
-        </TopNav.Item>
         <TopNav.Item marginLeft="major-2" use={RouterLink} to="/contactus">
           Contact
         </TopNav.Item>
