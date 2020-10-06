@@ -4,6 +4,7 @@
 package thurs1030group5.majorproject.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 import javax.persistence.*;
 
@@ -22,7 +23,6 @@ public class Booking {
     //Many-to-one relationship with user entities, bookings can only have one user
     @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "customer", referencedColumnName = "username")
-    @JsonIgnore
     private AppUser user;
 
     //Many-to-one relationship with worker entities, bookings can only have one worker
@@ -47,11 +47,11 @@ public class Booking {
     public void setAppointment(Appointment appointment) {
         this.appointment = appointment;
     }
-
+    @JsonIgnore
     public AppUser getUser() {
         return user;
     }
-
+    @JsonProperty
     public void setUser(AppUser user) {
         this.user = user;
     }
