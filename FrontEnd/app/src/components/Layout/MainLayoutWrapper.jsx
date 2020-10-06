@@ -11,6 +11,7 @@ function MainLayoutWrapper({ children }) {
   const history = useHistory();
 
   function handleLogOut() {
+    localStorage.clear();
     setUser({});
     history.push('/login');
   }

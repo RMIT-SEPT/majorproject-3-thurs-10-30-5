@@ -94,13 +94,13 @@ export default function Services() {
     //Create object with necessary data required to pass to the API via POST
     const data = {
       appointment: {
-        appointmentTime: '2020-09-16T15:47:58:673Z',
-        type: 'TESTTYPE',
+        appointmentTime: '2020-09-16T15:47:58.673Z',
+        appointmentType: 'TESTTYPE',
         description: 'TEST',
-        dateCreated: '2020-09-16T15:47:58:673Z'
+        dateCreated: '2020-09-16T15:47:58.673Z'
       },
       user: {
-        username: 'testtest'
+        username: 'Prinkin'
       },
       worker: {
         id: 7

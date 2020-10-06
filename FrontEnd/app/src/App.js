@@ -1,5 +1,6 @@
 import React from 'react';
 import { Route, Switch, BrowserRouter } from 'react-router-dom';
+import interceptors from "../src/interceptors";
 
 import MainLayoutWrapper from './components/Layout/MainLayoutWrapper';
 import Home from './components/Home.jsx';
