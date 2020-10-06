@@ -6,6 +6,8 @@ import thurs1030group5.majorproject.model.Appointment;
 import thurs1030group5.majorproject.model.Booking;
 import thurs1030group5.majorproject.repository.BookingRepository;
 
+import java.time.LocalDateTime;
+import java.util.Date;
 import java.util.List;
 
 @Service
@@ -27,5 +29,8 @@ public class BookingService {
         return bookingRepository.findBookingsByUser_username(username);
     }
 
+    public List<Booking> getWorkerBookings(Long workerId, Date dayStart, Date dayEnd) {
+        return bookingRepository.findBookingByWorker_IdAndAppointment_AppointmentTimeBetween(workerId, dayStart, dayEnd);
+    }
 
 }
