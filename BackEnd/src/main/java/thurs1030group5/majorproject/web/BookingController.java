@@ -52,7 +52,7 @@ public class BookingController {
         return new ResponseEntity<>(HttpStatus.CREATED);
     }
 //Gets all bookings in the database for the logged in user
-    @GetMapping("/api/booking/customer")
+    @PostMapping("/api/booking/customer")
     public List<Booking> getAllCustomerBookings(HttpServletRequest request) {
         String currentUsername = jwtAuthenticationFilter.getUsernameFromAuthenticationHeader(request);
 
