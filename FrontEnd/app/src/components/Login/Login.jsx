@@ -44,7 +44,7 @@ export default function Login() {
                     username: values.username,
                     token: res.data.token
                   };
-                  localStorage.setItem("authorization", res.data.token);
+                  localStorage.setItem('authorization', res.data.token);
                   setUser(user);
                   history.push('/dashboard');
                 }
