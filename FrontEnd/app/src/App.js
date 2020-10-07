@@ -11,6 +11,7 @@ import Dashboard from './components/Dashboard.jsx';
 import ContactUs from './components/ContactUs.jsx';
 import Services from './components/Services.jsx';
 import ProfilePage from './components/WorkerProfilePage/ProfilePage.jsx'
+import Appointments from './components/Appointments/Appointments';
 
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
           <Route exact path="/signup" component={Signup} />
           <Route exact path="/contactus" component={ContactUs} />
           <Route exact path="/services" component={Services} />
+          <Route exact path="/appointments" component={Appointments} />
           <Route exact path="/exampleworkerprofile" component={ProfilePage} />
           {/*<Route component = {error}/>*/}
         </Switch>

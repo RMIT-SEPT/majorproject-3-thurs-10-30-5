@@ -10,7 +10,7 @@ function CardComponent({ name, button, description, buttonlink }) {
       height="320px"
       title={name}
       footer={
-        <Button width="150px" palette="primary" textAlign="center" use={RouterLink} to={buttonlink}>
+        <Button width="150px" palette="primary" textAlign="center" use={RouterLink} to={buttonlink || '/'}>
           {button}
         </Button>
       }
