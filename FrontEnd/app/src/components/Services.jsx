@@ -1,16 +1,20 @@
 import React from 'react';
-import { Box, Button, Heading, PageContent, Card, FieldStack, SelectMenuField, Alert } from 'bumbag';
+import { Box, Button, Heading, PageContent, Card, FieldStack, SelectMenuField, Alert, Label } from 'bumbag';
 import * as Loads from 'react-loads';
-import api from '../services/api.jsx';
+import useUser from '../hooks/useUser';
 import axios from 'axios';
 
 export default function Services() {
   //The value for the select service dropdown
   const [serviceValue, setServiceValue] = React.useState();
-
+  //The value for the select worker dropdown
   const [workerValue, setWorkerValue] = React.useState();
-
+  //The value for the select appointment time dropdown
   const [value, setValue] = React.useState();
+  //The value for the date input
+  const [dateValue, setDateValue] = React.useState();
+  //Initializing custom react hook useUser
+  const { user } = useUser();
 
   //////////////////////////////////////////////////////////////////
   //=========================SERVICES=============================//
@@ -53,11 +57,16 @@ export default function Services() {
   // get the availabilitydepending on which service is selected.
   const getAvailability = React.useCallback(async () => {
     //Create object with necessary data required to pass to the API via POST
+    const date = new Date(dateValue);
+    console.log('Date: ', date);
+    console.log('DateValue: ', dateValue);
     const data = {
-      id: workerValue.value,
-      firstName: serviceValue.label,
-      lastName: workerValue.lastName,
-      availability: { id: workerValue.availabilityId }
+      appointment: {
+        appointmentTime: date
+      },
+      worker: {
+        id: workerValue.value
+      }
     };
     console.log('Worker Value', workerValue);
     //Set the headers required for the API request
@@ -70,40 +79,46 @@ export default function Services() {
 
     //Make the axios POST request, using the data object created earlier, and the headers.
     const response = await axios.post(
-      'http://localhost:8080/api/public/availability/worker',
+      //'http://localhost:8080/api/public/availability/worker',
+      'http://localhost:8080/api/booking/availability',
       JSON.stringify(data),
       options
     );
     console.log('Availability', response.data);
 
-    let availabilityArr = [];
+    let availabilityArr = response.data;
 
-    for (const key in response.data) {
-      if (response.data[key] === true) {
-        availabilityArr = [...availabilityArr, { label: key, value: key }];
-      }
-    }
+    availabilityArr = availabilityArr.map(item => {
+      return {
+        value: item.appointmentTime,
+        label: item.description
+      };
+    });
+
+    console.log('Availability Arr', availabilityArr);
 
     return availabilityArr;
-  }, [workerValue]); //Set the dependency, so this POST request is called only when there is a change in the serviceValue state.
+  }, [dateValue]); //Set the dependency, so this POST request is called only when there is a change in the serviceValue state.
 
   //////////////////////////////////////////////////////////////////
   //=======================CREATEBOOKING==========================//
   /////////////////////////////////////////////////////////////////
-  const createBooking = React.useCallback(async () => {
+  const createBooking = async () => {
     //Create object with necessary data required to pass to the API via POST
+    const dateCreated = new Date();
+
     const data = {
       appointment: {
-        appointmentTime: '2020-09-16T15:47:58.673Z',
+        appointmentTime: value.value,
         appointmentType: 'TESTTYPE',
-        description: 'TEST',
-        dateCreated: '2020-09-16T15:47:58.673Z'
+        dateCreated: '2020-09-16T15:47:58.673Z',
+        description: 'NULL'
       },
       user: {
-        username: 'Prinkin'
+        username: user.username
       },
       worker: {
-        id: 7
+        id: workerValue.value
       }
     };
 
@@ -114,13 +129,13 @@ export default function Services() {
         'Access-control-Allow-Origin': '*'
       }
     };
-    console.log('you clicked the button...i hope');
+    console.log('booking: ', data);
     //Make the axios POST request, using the data object created earlier, and the headers.
     const response = await axios.post('http://localhost:8080/api/booking/create', JSON.stringify(data), options);
 
     console.log(response);
     return response;
-  }, []);
+  };
 
   //use react Loads to complete the promise and store the data
   const servicesRecord = Loads.useLoads('services', getServices);
@@ -185,6 +200,20 @@ export default function Services() {
                     value={workerValue}
                     paddingBottom="20px"
                   />
+                  <Label>Select your appointment date</Label>
+                  <Box width="100%">
+                    <input
+                      type="date"
+                      id="start"
+                      name="appointment-date"
+                      value={dateValue}
+                      min="2020-10-10"
+                      max="2030-1-1"
+                      onChange={e => setDateValue(e.target.value)}
+                      disabled={workerValue ? false : true}
+                    />
+                  </Box>
+
                   <SelectMenuField
                     width="100%"
                     paddingBottom="10px"
