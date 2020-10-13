@@ -4,6 +4,8 @@
 package thurs1030group5.majorproject.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -59,7 +61,7 @@ public class AppUser implements UserDetails {
     public void setUsername(String username) {
         this.username = username;
     }
-
+    @JsonProperty
     public void setPassword(String password) {
         this.password = password;
     }
