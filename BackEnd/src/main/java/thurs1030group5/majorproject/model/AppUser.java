@@ -42,7 +42,7 @@ public class AppUser implements UserDetails {
 
     //Many-to-one relationship with role entities, user can only have one role
     @ManyToOne()
-    @JoinColumn(name = "role_id", referencedColumnName = "id", insertable = false, updatable = false)
+    @JoinColumn(name = "role_id", referencedColumnName = "id")
     private Role role;
     //====================== COLUMNS ======================//
 
@@ -86,7 +86,7 @@ public class AppUser implements UserDetails {
     public AppUserDetails getUserDetails() {
         return userDetails;
     }
-
+    @JsonProperty
     public void setUserDetails(AppUserDetails userDetails) {
         this.userDetails = userDetails;
     }
