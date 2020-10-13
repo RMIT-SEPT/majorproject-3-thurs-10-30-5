@@ -15,7 +15,8 @@ const workerCard = { name: 'Workers', description: 'View available workers', but
 const appointmentCard = {
   name: 'Appointments',
   description: 'View appointments',
-  button: 'Appointments'
+  button: 'Appointments',
+  buttonlink: '/appointments'
 };
 const extraCard = { name: 'Extra', description: 'Extra', button: 'Extra' };
 
