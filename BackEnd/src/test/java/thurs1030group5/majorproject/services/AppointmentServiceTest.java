@@ -8,6 +8,7 @@ import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabas
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import thurs1030group5.majorproject.model.Appointment;
+import thurs1030group5.majorproject.model.AppointmentType;
 import thurs1030group5.majorproject.repository.AppointmentRepository;
 
 import java.util.Arrays;
@@ -29,30 +30,34 @@ public class AppointmentServiceTest {
 
     @BeforeEach
     public void setUp() {
+        AppointmentType appointmentType = new AppointmentType();
+        appointmentType.setType("Consultation");
+        appointmentType.setDuration(30);
+
         Date currentDateTime = new Date();
         Appointment app1 = new Appointment();
         app1.setId((long) 1);
         app1.setAppointmentTime(new Date(1607905800));
-        app1.setType("TestType1");
+        app1.setType(appointmentType);
         app1.setDescription("Test Appointment");
         app1.setDateCreated(currentDateTime);
 
         Appointment app2 = new Appointment();
         app2.setId((long) 2);
         app2.setAppointmentTime(new Date(1639441800));
-        app2.setType("TestType2");
+        app2.setType(appointmentType);
         app2.setDescription("Test Appointment 2");
         app2.setDateCreated(currentDateTime);
 
         Appointment app3 = new Appointment();
         app3.setId((long) 3);
         app3.setAppointmentTime(new Date(1609466400));
-        app3.setType("TestType2");
+        app3.setType(appointmentType);
         app3.setDescription("Test Appointment 3");
         app3.setDateCreated(currentDateTime);
 
         Mockito.when(appointmentRepository.findAll()).thenReturn(Arrays.asList(app1, app2, app3));
-        Mockito.when(appointmentRepository.findAllByType("TestType2")).thenReturn(Arrays.asList(app2, app3));
+        Mockito.when(appointmentRepository.findAllByAppointmentType(appointmentType)).thenReturn(Arrays.asList(app2, app3));
     }
 
     @Test
@@ -64,17 +69,23 @@ public class AppointmentServiceTest {
 
     @Test
     public void getAllAppointmentsOfCertainType(){
-        String type = "TestType2";
+        AppointmentType appointmentType = new AppointmentType();
+        appointmentType.setType("Consultation");
+        appointmentType.setDuration(30);
+
         int expectedSize = 2;
-        List<Appointment> appointments = appointmentService.getAllAppointmentByType(type);
+        List<Appointment> appointments = appointmentService.getAllAppointmentByType(appointmentType);
         int actualSize = appointments.size();
         assertEquals(expectedSize, actualSize);
     }
 
     @Test
     public void getAllAppointmentsOfNonExistingType(){
-        String type = "FakeType";
+        AppointmentType appointmentType = new AppointmentType();
+        appointmentType.setType("FakeType");
+        appointmentType.setDuration(30);
+
         int resultSize = 0;
-        assertEquals(resultSize, appointmentService.getAllAppointmentByType(type).size());
+        assertEquals(resultSize, appointmentService.getAllAppointmentByType(appointmentType).size());
     }
 }

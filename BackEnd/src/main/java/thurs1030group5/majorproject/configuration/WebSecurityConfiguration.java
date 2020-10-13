@@ -64,14 +64,14 @@ public class WebSecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .antMatchers(SecurityConstants.PUBLIC_URLS,
                         "/api/registration",
                         "/login").permitAll()
-                .anyRequest().authenticated()
-                .and()
+                .anyRequest().authenticated();
+//                .and()
 //                Sets form login. Will be changed in milestone 3 for better JWT implementation
-                .formLogin()
-                .loginPage("/login")
-                .permitAll()
-                .passwordParameter("password")
-                .usernameParameter("username");
+//                .formLogin()
+//                .loginPage("/login")
+//                .permitAll()
+//                .passwordParameter("password")
+//                .usernameParameter("username");
 
 //        Adds the JWT filter
         http.addFilterBefore(jwtAuthenticationFilter(), UsernamePasswordAuthenticationFilter.class);

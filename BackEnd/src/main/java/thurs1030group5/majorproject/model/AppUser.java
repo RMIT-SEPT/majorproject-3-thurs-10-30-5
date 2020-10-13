@@ -3,6 +3,9 @@
 
 package thurs1030group5.majorproject.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -26,8 +29,9 @@ public class AppUser implements UserDetails {
     @NotBlank(message = "*Please provide your password")
     private String password;
 
-    @NotBlank(message = "*Please provide your email")
-    private String email;
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "details_id", referencedColumnName = "id")
+    private AppUserDetails userDetails;
 
     //Holds all bookings a customer/worker account has
     @OneToMany(targetEntity = Booking.class, mappedBy = "user", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
@@ -38,12 +42,13 @@ public class AppUser implements UserDetails {
 
     //Many-to-one relationship with role entities, user can only have one role
     @ManyToOne()
-    @JoinColumn(name = "role_id", referencedColumnName = "id", insertable = false, updatable = false)
+    @JoinColumn(name = "role_id", referencedColumnName = "id")
     private Role role;
     //====================== COLUMNS ======================//
 
     //====================== GETTERS / SETTERS ======================//
     @Override
+    @JsonIgnore
     public String getPassword() {
         return password;
     }
@@ -56,17 +61,9 @@ public class AppUser implements UserDetails {
     public void setUsername(String username) {
         this.username = username;
     }
-
+    @JsonProperty
     public void setPassword(String password) {
         this.password = password;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
     }
 
     public Role getRole() {
@@ -83,6 +80,30 @@ public class AppUser implements UserDetails {
     }
 
     public void setEnabled(boolean enabled) {
+        this.enabled = enabled;
+    }
+    @JsonIgnore
+    public AppUserDetails getUserDetails() {
+        return userDetails;
+    }
+    @JsonProperty
+    public void setUserDetails(AppUserDetails userDetails) {
+        this.userDetails = userDetails;
+    }
+    @JsonIgnore
+    public List<Booking> getBookings() {
+        return bookings;
+    }
+
+    public void setBookings(List<Booking> bookings) {
+        this.bookings = bookings;
+    }
+
+    public Boolean getEnabled() {
+        return enabled;
+    }
+
+    public void setEnabled(Boolean enabled) {
         this.enabled = enabled;
     }
     //====================== GETTERS / SETTERS ======================//

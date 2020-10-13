@@ -33,15 +33,11 @@ public class WorkerServiceTest {
 
         Worker worker1 = new Worker();
         worker1.setId((long) 1);
-        worker1.setFirstName("FirstName1");
-        worker1.setLastName("LastName1");
         worker1.setAvailability(null);
         worker1.setBusiness(business);
 
         Worker worker2 = new Worker();
         worker2.setId((long) 2);
-        worker2.setFirstName("FirstName2");
-        worker2.setLastName("LastName2");
         worker2.setAvailability(null);
         worker2.setBusiness(business);
 
