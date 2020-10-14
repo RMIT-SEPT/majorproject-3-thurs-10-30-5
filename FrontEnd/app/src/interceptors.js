@@ -1,11 +1,11 @@
-var axios = require("axios");
+var axios = require('axios');
 
-export const jwtToken = localStorage.getItem("authorization");
+export const jwtToken = localStorage.getItem('authorization');
 
 axios.interceptors.request.use(
   function(config) {
     if (jwtToken) {
-      config.headers["authorization"] = jwtToken;
+      config.headers['authorization'] = localStorage.getItem('authorization');
     }
     return config;
   },
