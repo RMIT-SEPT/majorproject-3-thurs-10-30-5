@@ -57,11 +57,17 @@ workflows:
   runtests:
     jobs:
       - build-backend:
-        filters:
-          branches:
-            only: /^backend/
+          filters:
+            branches:
+              only:
+                - master
+                - dev
+                - backend
 
       - build-frontend:
-        filters:
-          branches:
-            only: /^frontend/
+          filters:
+            branches:
+              only:
+                - master
+                - dev
+                - frontend

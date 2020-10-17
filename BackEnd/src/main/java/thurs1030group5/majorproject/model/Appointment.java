@@ -1,28 +1,35 @@
+//CLASSNAME: Appointment
+//DESCRIPTION: A class to represent a specific appointment for a customer
+
 package thurs1030group5.majorproject.model;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.PastOrPresent;
-import java.awt.print.Book;
 import java.util.Date;
 
 @Entity
 public class Appointment {
+
+    //====================== COLUMNS ======================//
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
     private Date appointmentTime;
 
-    @NotBlank(message = "*Appointment must have a type")
-    private String type;
     private String description;
 
     @PastOrPresent
     private Date dateCreated;
 
-    @OneToOne(mappedBy = "appointment")
-    private Booking booking;
+    //Many-to-one relationship with appointment type, appointments can only have one type
+    @ManyToOne()
+    @JoinColumn(name = "appointment_type", referencedColumnName = "type")
+    private AppointmentType appointmentType;
+    //====================== COLUMNS ======================//
 
+    //====================== GETTERS / SETTERS ======================//
     public Long getId() {
         return id;
     }
@@ -39,12 +46,12 @@ public class Appointment {
         this.appointmentTime = appointmentTime;
     }
 
-    public String getType() {
-        return type;
+    public AppointmentType getType() {
+        return appointmentType;
     }
 
-    public void setType(String type) {
-        this.type = type;
+    public void setType(AppointmentType appointmentType) {
+        this.appointmentType = appointmentType;
     }
 
     public String getDescription() {
@@ -62,4 +69,5 @@ public class Appointment {
     public void setDateCreated(Date dateCreated) {
         this.dateCreated = dateCreated;
     }
+    //====================== GETTERS / SETTERS ======================//
 }
